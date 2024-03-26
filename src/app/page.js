@@ -1,23 +1,23 @@
-"use client";
-import Image from "next/image";
-import Link from "next/link";
+'use client';
+import Image from 'next/image';
+import Link from 'next/link';
 
-import HeroSection from "../components/HeroSection";
-import Content from "../components/Content";
+import HeroSection from '../components/HeroSection';
+import Content from '../components/Content';
 
-import GradientImg from "@/components/GradientImg";
-import gcards from "@/components/GradientData";
+import GradientImg from '@/components/GradientImg';
+import gcards from '@/components/GradientData';
 
-import CardCarousel from "../components/CardCarousel";
-import GradientCarousel from "@/components/GradientCarousel";
+import CardCarousel from '../components/CardCarousel';
+import GradientCarousel from '@/components/GradientCarousel';
 
-import brandData from "../components/data/brandData";
+import brandData from '../components/data/brandData';
 
-import { cards } from "../components/CardData.js";
-import BrandImages from "@/components/BrandImages";
-import featuredData from "@/components/data/featuredData";
-import Marquee from "react-fast-marquee";
-import Fade from "react-reveal/Fade";
+import { cards } from '../components/CardData.js';
+import BrandImages from '@/components/BrandImages';
+import featuredData from '@/components/data/featuredData';
+import Marquee from 'react-fast-marquee';
+import Fade from 'react-reveal/Fade';
 
 export default function Home() {
   return (
@@ -181,13 +181,13 @@ export default function Home() {
                 </div>
                 <div class="w-full md:w-[47%] text-center md:text-left">
                   <h2 class="text-4xl md:text-5xl font-black tracking-tight text-white">
-                    'The foremost tech law firm'
+                    &apos;The foremost tech law firm&apos;
                   </h2>
                   <p class="text-sm mt-4 text-white px-4">
                     Vazi is the foremost tech law firm based in Nigeria and the
                     United States. We offer a personalized approach for venture
                     capitalists, private equity firms, and startups by advisory
-                    services best suited for our clients’ business interests.
+                    services best suited for our clients' business interests.
                   </p>
                 </div>
               </div>
