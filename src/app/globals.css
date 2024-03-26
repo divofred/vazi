@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.cdnfonts.com/css/raleway-5");
+@import url("https://fonts.cdnfonts.com/css/hvdtrial-brandon-grotesque");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-[#63B9C9] to-[#0995AE] bg-clip-text text-transparent;
+  @apply h-[3rem];
+}
+
+.gradient-text3 {
+  @apply bg-gradient-to-r from-[#63B9C9] to-[#0995AE] bg-clip-text text-transparent;
+}
+
+.gradient-text2 {
+  @apply bg-gradient-to-b from-[rgba(255,255,255,0.54)] to-[rgb(255,255,255)] bg-clip-text text-transparent;
+  @apply h-[3.2rem];
+}
+
+.text-small {
+  @apply text-[12px] leading-[1.2];
+}
+
+.active {
+  @apply relative  text-[13px] transition duration-200 text-white font-medium no-underline after:absolute after:block after:left-1/4 after:right-1/4  after:border after:border-white after:bottom-[-3px];
+}
+
+.gradient-card {
+  @apply bg-gradient-to-br from-white to-[#D4E5E8];
+}
+
+.text13 {
+  @apply text-[0.82rem];
+}
+
+.alink {
+  @apply relative text-[#A7F4FF] text-[13px] transition duration-200 hover:text-white;
+}
+
+.textgreen {
+  @apply text-[#027889];
+}
+
+.textgray {
+  @apply text-[#646464];
+}
+
+.textglink {
+  @apply text-[#1193A9];
+}
+
+.gradient-card2 {
+  @apply bg-gradient-to-br from-[#FFFFFF] to-[#eae9e8];
+}
+.gradient-button {
+  @apply backdrop-blur-[3px] bg-gradient-to-tr from-[rgba(207,235,240,0.82)] to-[rgb(165,206,212,1.00)] border border-[rgb(191,230,236)];
+}
+
+.gradient-card3 {
+  @apply backdrop-blur-[2px] bg-gradient-to-b from-[rgba(194,194,194,0.20)] to-[rgb(74,139,159,0.40)];
+}
+
+.gradient-card4 {
+  @apply backdrop-blur-[2px] bg-gradient-to-br from-[#FFFFFF] to-[rgba(214,234,237,0.74)];
+}
+
+.gradient-card5 {
+  @apply backdrop-blur-[2px] bg-gradient-to-br from-[#08AECC] to-[#02869D];
+}
+
+.gradient-card6 {
+  @apply backdrop-blur-[2px] bg-gradient-to-b from-[#009AB5] to-[#002E36];
+}
+
+.gradient-card7 {
+  @apply text-[#232B2D] hover:text-white backdrop-blur-[2px] transition duration-300 bg-gradient-to-b from-[rgba(187,187,187,0.2)] to-[rgba(187,187,187,0.2)]  hover:from-[#00A9C6] hover:to-[#00798D];
+}
+
+.gradient-card8 {
+  @apply text-white backdrop-blur-[2px] transition duration-300 bg-gradient-to-b from-[#00A9C6] to-[#00798D];
+}
+
+.gradient-blogpost {
+  @apply bg-gradient-to-t from-[rgb(254,177,1)] to-[rgba(237,239,240,0.4)];
+}
+
+.gradient-hero-span {
+  background-image: linear-gradient(to top, #ffd26a, #f8eed3);
+  @apply bg-clip-text text-transparent;
+}
+
+.gradient-hero {
+  background-image: linear-gradient(to top, rgb(152, 219, 215), #fffbec);
+  @apply bg-clip-text text-transparent h-[13rem];
+}
+
+.text-hero {
+  /* font-size: 6.2rem;*/
+  line-height: 1.07;
+  letter-spacing: -2px;
+}
+
+.text-outline {
+  -webkit-text-stroke-width: 2px; /* Set the width of the outline */
+  -webkit-text-stroke-color: #d8c59b; /* Set the color of the outline */
+  text-stroke-width: 2px; /* Set the width of the outline for non-webkit browsers */
+  text-stroke-color: #d8c59b; /* Set the color of the outline for non-webkit browsers */
+}
+
+.shape {
+  position: relative;
+  overflow: hidden;
+  height: 250px;
+}
+
+.shape::before {
+  border-radius: 100%;
+  position: absolute;
+  background: rgb(150, 14, 14);
+  right: -200px;
+  left: -200px;
+  top: -140px;
+  content: "";
+  bottom: 0;
+}
+
+.font-inter {
+  font-family: "Inter", sans-serif;
+}
+
+.font-inter-thin {
+  font-weight: 100;
+}
+
+.font-inter-light {
+  font-weight: 300;
+}
+
+.font-inter-regular {
+  font-weight: 400;
+}
+
+.font-inter-medium {
+  font-weight: 500;
+}
+
+.font-inter-semibold {
+  font-weight: 600;
+}
+
+.font-inter-bold {
+  font-weight: 700;
+}
+
+.font-inter-extrabold {
+  font-weight: 800;
+}
