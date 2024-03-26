@@ -187,7 +187,8 @@ export default function Home() {
                     Vazi is the foremost tech law firm based in Nigeria and the
                     United States. We offer a personalized approach for venture
                     capitalists, private equity firms, and startups by advisory
-                    services best suited for our clients' business interests.
+                    services best suited for our clients&apos; business
+                    interests.
                   </p>
                 </div>
               </div>
