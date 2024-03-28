@@ -1,6 +1,6 @@
-"use client";
-import Link from "next/link";
-import Fade from "react-reveal/Fade";
+'use client';
+import Link from 'next/link';
+import Fade from 'react-reveal/Fade';
 
 const Card = ({ title, imageUrl, link, fadeDuration }) => (
   <Fade delay={fadeDuration}>
@@ -17,7 +17,7 @@ const Card = ({ title, imageUrl, link, fadeDuration }) => (
           passHref
           className="text-xs transition duration-700 ease-in-out text-white bg-gradient-to-r from-[#0A6070] to-[#8EA6AA] rounded-lg hover:from-[#FEB003] hover:to-[#FFF0CD] pl-1.5 xl:pl-2 pr-[5.5rem] xl:pr-[8rem] py-3"
         >
-          More{" "}
+          More{' '}
           <svg
             className="inline-flex"
             width="10"

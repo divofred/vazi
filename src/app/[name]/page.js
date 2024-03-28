@@ -1,18 +1,17 @@
-"use client";
-import Header from "@/components/Header";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import Blog from "@/components/Blog";
+'use client';
+import Header from '@/components/Header';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import Blog from '@/components/Blog';
 
 export default async function InnerBlog() {
   const name = usePathname();
-  console.log(name);
 
   async function getData() {
-    const res = await fetch("https://vazilegal.com/graphql", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      cache: "no-store",
+    const res = await fetch('https://vazilegal.com/graphql', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      cache: 'no-store',
       body: JSON.stringify({
         query: `
            query post{
@@ -35,8 +34,8 @@ export default async function InnerBlog() {
            }
           }
       }
-          `,
-      }),
+          `
+      })
     });
 
     const json = await res.json();

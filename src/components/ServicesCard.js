@@ -1,5 +1,5 @@
-import React from "react";
-import Link from "next/link";
+import React from 'react';
+import Link from 'next/link';
 
 const ServicesCard = ({ title, description, linkText, linkHref, iconSrc }) => {
   return (
@@ -18,10 +18,10 @@ const ServicesCard = ({ title, description, linkText, linkHref, iconSrc }) => {
       </div>
       <div className=" mt-auto">
         <Link
-          href={linkHref || "/"}
+          href={linkHref || '/'}
           className=" text-left border-[#e9ca871f] bg-gradient-to-r from-[#FEB101] to-[rgba(255,179,0,0.2)] hover:from-[#0037402d] hover:to-[#5bcedf5b] px-4 block py-3.5 rounded-md text-xs text-white font-base"
         >
-          {linkText || "More"}
+          {linkText || 'More'}
         </Link>
       </div>
     </div>

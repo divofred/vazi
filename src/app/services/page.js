@@ -1,8 +1,39 @@
-import HeroSection from "@/components/HeroSection";
-import Link from "next/link";
-import ServicesCard from "@/components/ServicesCard";
+import HeroSection from '@/components/HeroSection';
+import Link from 'next/link';
+import ServicesCard from '@/components/ServicesCard';
 
-export default function services() {
+export async function getData() {
+  const res = await fetch('https://vazilegal.com/graphql', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    cache: 'no-store',
+    body: JSON.stringify({
+      query: `
+      query {
+        services{
+          nodes{
+            id
+            title
+            content
+            slug
+             featuredImage{
+               node{
+                sourceUrl
+              }
+            }
+          }
+        }
+      }
+         `
+    })
+  });
+
+  const { data } = await res.json();
+  const services = data.services.nodes;
+  return services;
+}
+export default async function services() {
+  const data = await getData();
   return (
     <main className="bg-wave bg-repeat">
       <div>
@@ -16,6 +47,25 @@ export default function services() {
       <section className="py-12 ">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-3 mx-auto place-items-center place-content-stretch max-w-[52rem] gap-y-3">
+            {data.map(service => {
+              const rep = service.content.replace(/&#8217;/g, "'");
+              const serviceTitleMatch = rep.match(
+                /<p id="service-card">(.*?)<\/p>/
+              );
+              const serviceTitle = serviceTitleMatch
+                ? serviceTitleMatch[1]
+                : '';
+              return (
+                <ServicesCard
+                  key={service.id}
+                  title={service.title}
+                  description={serviceTitle}
+                  linkText="View More"
+                  linkHref={`/services/${service.slug}`}
+                  iconSrc={service.featuredImage.node.sourceUrl}
+                />
+              );
+            })}
             <ServicesCard
               title="Startup Advisory"
               description="At Vazi, we are passionate about working with innovative start-up companies from ideation to completion, our clients are more than companies to us but partners, we are interested in their successes and growing their business by ensuring our start-up companies are legally protected and fully compliant with all the necessary regulations."
