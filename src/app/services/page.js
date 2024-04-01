@@ -61,7 +61,7 @@ export default async function services() {
                   title={service.title}
                   description={serviceTitle}
                   linkText="View More"
-                  linkHref={`/services/${service.slug}`}
+                  linkHref={`/${service.slug}`}
                   iconSrc={service.featuredImage.node.sourceUrl}
                 />
               );
