@@ -50,7 +50,7 @@ export default async function Inner() {
   });
 
   return (
-    <main className="bg-wave bg-opacity-5 font-inter">
+    <main className="bg-wave bg-opacity-5 font-inter ">
       <div>
         <Header />
       </div>
