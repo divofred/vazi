@@ -158,7 +158,7 @@ export default function about() {
           <div className="md:max-w-[40rem] xl:max-w-fit lg:h-fit place-content-center items-center mx-auto border rounded-3xl p-[10px] bg-gradient-to-b from-[#046D7E]  to-[rgba(255,179,0,0.2)]">
             <div className="p-6 sm:p-9 rounded-2xl bg-white">
               <div className="md:w-[35rem] xl:w-[51rem]">
-                <h2 className="text-2xl md:text-3xl sm:text-5xl  font-extrabold sm:leading-[3.5rem] text-[#1B383B]">
+                <h2 className="text-2xl md:text-3xl lg:text-5xl lg:leading-[3.6rem]  font-extrabold sm:leading-[3.5rem] text-[#1B383B]">
                   We are the{" "}
                   <span className="text-[#4E7A81]">leading tech law firm </span>
                   representing investors, start-up and technology driven

@@ -1,51 +1,51 @@
-'use client';
-import React from 'react';
-import Link from 'next/link';
-import Header from '@/components/Header';
+"use client";
+import React from "react";
+import Link from "next/link";
+import Header from "@/components/Header";
 // import { cards } from '@/components/CardData.js';
-import CardCarousel from '@/components/CardCarousel';
-import { usePathname } from 'next/navigation';
-import { getData } from '../page';
+import CardCarousel from "@/components/CardCarousel";
+import { usePathname } from "next/navigation";
+import { getData } from "../page";
 
 export default async function Inner() {
   const name = usePathname();
 
   const data = await getData();
   const service = data.find(
-    service => service.slug === name.replace('/services/', '')
+    (service) => service.slug === name.replace("/services/", "")
   );
 
   const serviceTitleMatch = service.content.match(
     /<p id="service-card">(.*?)<\/p>/
   );
-  const serviceTitle = serviceTitleMatch ? serviceTitleMatch[1] : '';
+  const serviceTitle = serviceTitleMatch ? serviceTitleMatch[1] : "";
 
   const heading1Match = service.content.match(/<h3 id="heading1">(.*?)<\/h3>/);
-  const heading1 = heading1Match ? heading1Match[1] : '';
+  const heading1 = heading1Match ? heading1Match[1] : "";
 
   const list1Match = service.content.match(/<ul id="list1">(.*?)<\/ul>/s);
-  const list1 = list1Match ? list1Match[1] : '';
+  const list1 = list1Match ? list1Match[1] : "";
 
   const heading2Match = service.content.match(/<h3 id="heading2">(.*?)<\/h3>/);
-  const heading2 = heading2Match ? heading2Match[1] : '';
+  const heading2 = heading2Match ? heading2Match[1] : "";
 
   const list2Match = service.content.match(/<ul id="list2">(.*?)<\/ul>/s);
-  const list2 = list2Match ? list2Match[1] : '';
+  const list2 = list2Match ? list2Match[1] : "";
 
   const heading3Match = service.content.match(/<h3 id="heading3">(.*?)<\/h3>/);
-  const heading3 = heading3Match ? heading3Match[1] : '';
+  const heading3 = heading3Match ? heading3Match[1] : "";
 
   const list3Match = service.content.match(/<ul id="list3">(.*?)<\/ul>/s);
-  const list3 = list3Match ? list3Match[1] : '';
+  const list3 = list3Match ? list3Match[1] : "";
 
   const sideImgRegex = /<img.*?id=\"sideimg\".*?src=\"(.*?)\".*?>/i;
   const sideImgMatch = service.content.match(sideImgRegex);
-  const sideImgSrc = sideImgMatch ? sideImgMatch[1] : '';
-  const cards = data.map(service => {
+  const sideImgSrc = sideImgMatch ? sideImgMatch[1] : "";
+  const cards = data.map((service) => {
     return {
       title: service.title,
       imageUrl: service.featuredImage.node.sourceUrl,
-      link: `/services/${name}`
+      link: `/services/${name}`,
     };
   });
 
@@ -57,9 +57,9 @@ export default async function Inner() {
       <section className="px-5 pt-32 pb-20">
         <div className="container">
           <div className="">
-            <div className="max-w-[53.8rem] border mx-auto rounded-xl px-12 gradient-card2 py-8">
+            <div className="max-w-[53.8rem] border mx-auto rounded-xl px-6 md:px-12 gradient-card2 py-8">
               <Link
-                href={'/services'}
+                href={"/services"}
                 className="text-xs inline-flex gap-1 text-[#6F898C] items-center "
               >
                 <svg
@@ -98,9 +98,7 @@ export default async function Inner() {
         <div className="container">
           <div className="">
             <div className="flex flex-col lg:flex-row max-w-[53.8rem] mx-auto px-5  justify-between">
-              <h2 className=" w-72 font-bold leading-5 gradient-text">
-                {heading1}
-              </h2>
+              <h2 className=" w-72 font-bold gradient-text">{heading1}</h2>
               <div className=" max-w-[31rem]">
                 <ul
                   className="list-disc text-sm lg:text-base leading-6 text-cgray"
@@ -109,7 +107,7 @@ export default async function Inner() {
               </div>
             </div>
             <div className="flex flex-col lg:flex-row max-w-[53.8rem] mx-auto mt-12 px-5 justify-between">
-              <h2 className=" w-72 font-bold  gradient-text3 mb-1">
+              <h2 className=" w-72 font-bold  gradient-text3 mb-3">
                 {heading2}
               </h2>
               <div className=" max-w-[31rem]">
@@ -120,7 +118,7 @@ export default async function Inner() {
               </div>
             </div>
             <div className="flex flex-col lg:flex-row max-w-[53.8rem] mx-auto mt-12 px-5 justify-between ">
-              <h2 className=" w-72 font-bold leading-5 gradient-text3 mb-1">
+              <h2 className=" w-72 font-bold leading-5 gradient-text3 mb-3">
                 {heading3}
               </h2>
               <div className=" max-w-[31rem] ">
@@ -130,7 +128,7 @@ export default async function Inner() {
                 />
                 <div className="mt-5">
                   <Link
-                    href={'/'}
+                    href={"/"}
                     className=" text-left border-[#e9ca871f] bg-gradient-to-r from-[#FDDE99] to-[#FEB101] hover:from-[#0037402d] hover:to-[#5bcedf5b] px-5 py-2.5 rounded-md text-xs text-white font-semibold"
                   >
                     Talk to our Startup Advisory Team
