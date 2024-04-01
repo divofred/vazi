@@ -45,7 +45,7 @@ export default async function Inner() {
     return {
       title: service.title,
       imageUrl: service.featuredImage.node.sourceUrl,
-      link: `${service.name}`,
+      link: `${service.slug}`,
     };
   });
 
