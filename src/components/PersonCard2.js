@@ -3,20 +3,8 @@
 import React from 'react';
 import Link from 'next/link';
 
-const PersonCard = ({ person, href }) => {
-  console.log(person);
-  const imageSrc = person.featuredImage.node.sourceUrl;
-  const name = person.title;
-
-  const content = person.content;
-
-  const positionRegex = /<p id=\"position\">(.*?)<\/p>/i;
-
-  const positionMatch = content.match(positionRegex);
-
-  // Extracted texts
-  const role = positionMatch ? positionMatch[1].trim() : '';
-
+const PersonCard = ({ person }) => {
+  const { imageSrc, name, role, href } = person;
   const cardContent = (
     <div className="w-[20rem] lg:w-[16.5rem] mx-auto ">
       <div className=" gradient-card3 lg:h-[18.6rem] flex rounded-t-lg">

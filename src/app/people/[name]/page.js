@@ -1,11 +1,60 @@
-"use client";
-import Link from "next/link";
-import Header from "@/components/Header";
-import PersonCard from "@/components/PersonCard";
-import peopleData from "@/components/data/peopleData";
-import Carousel from "@/components/PeopleCarousel";
+'use client';
+import Link from 'next/link';
+import Header from '@/components/Header';
 
-export default function LegalChild() {
+import Carousel from '@/components/PeopleCarousel';
+
+import { usePathname } from 'next/navigation';
+
+import { getLegalData } from '../page';
+
+export default async function LegalChild() {
+  const name = usePathname();
+
+  const data = await getLegalData();
+
+  const service = data.find(
+    service => service.slug === name.replace('/people/', '')
+  );
+  const positionRegex = /<p id=\"position\">(.*?)<\/p>/i;
+
+  const positionMatch = service?.content.match(positionRegex);
+
+  // Extracted texts
+  const role = positionMatch ? positionMatch[1].trim() : '';
+
+  const biographyRegex = /<p id=\"biography-paragraph\">(.*?)<\/p>/i;
+  const educationRegex = /<ul id=\"education-list\">(.*?)<\/ul>/s;
+
+  const biographyMatch = service?.content.match(biographyRegex);
+
+  const educationMatch = service?.content.match(educationRegex);
+
+  // Extracted texts
+  const biography = biographyMatch ? biographyMatch[1].trim() : '';
+
+  const education = educationMatch ? educationMatch[1].trim() : '';
+
+  const peopleData = [
+    // {
+    //   id: service.id,
+    //   imageSrc: service.featuredImage.node.sourceUrl,
+    //   name: service.title,
+    //   role,
+    //   href: '/people/' + service.slug
+    // }
+  ];
+
+  data.reverse().map(service => {
+    peopleData.push({
+      id: service.id,
+      imageSrc: service.featuredImage.node.sourceUrl,
+      name: service.title,
+      role: service.content.match(positionRegex)[1].trim(),
+      href: '/people/' + service.slug
+    });
+  });
+
   return (
     <main className="bg-wave font-inter">
       <div>
@@ -16,7 +65,7 @@ export default function LegalChild() {
           <div className="">
             <div className="max-w-[54.8rem] h-[] border mx-auto rounded-xl px-5 lg:px-12 gradient-card3 pt-8">
               <Link
-                href={"/legal-team"}
+                href={'/people'}
                 className="text-xs inline-flex gap-1 text-[#6F898C] items-center "
               >
                 <svg
@@ -36,15 +85,15 @@ export default function LegalChild() {
               <div className="flex mt-6 justify-between  ">
                 <div className=" lg:mt-8 max-w-md">
                   <h2 className=" text-3xl lg:text-4xl text-[#00A9C6] font-bold ">
-                    Modupe Odele
+                    {service.title}
                   </h2>
                   <p className="mt-1 text-sm lg:text-base text-[#8CA8AD]">
-                    Manager Partner
+                    {role}
                   </p>
 
                   <div className="mt-6">
                     <Link
-                      href={"/"}
+                      href={'/'}
                       className=" px-5 lg:px-6 py-2 lg:py-2.5 bg-gradient-to-r from-[#FFDE98] to-[#FFB100] hover:from-[#0037402d] hover:to-[#5bcedf5b] text-xs lg:text-sm font-medium text-[#A87807] rounded-sm"
                     >
                       Contact
@@ -53,7 +102,7 @@ export default function LegalChild() {
                 </div>
                 <div className=" self-center">
                   <img
-                    src="/people/modupe.png"
+                    src={service.featuredImage.node.sourceUrl}
                     className="w-[10rem] lg:w-[13.5rem] mb-0.5 "
                   />
                 </div>
@@ -71,37 +120,7 @@ export default function LegalChild() {
                 Biography
               </h2>
               <div className=" text-sm lg:text-base max-w-[31rem] text-cgray">
-                <p>
-                  A Founding Partner at Vazi, Moe&apos;s current practice
-                  centers around Fundraising Advisory, Governance and
-                  Compliance, and Technology Transactions and Licensing. She
-                  also has a keen interest in Decentralized Finance (DeFi),
-                  Blockchain and Cryptocurrency, Smart Contracts, and DAOs,
-                  advising companies in the Web3 space.
-                </p>
-
-                <p className="mt-6">
-                  Moe Odele is a Tech Attorney with a strong track record of
-                  providing strategic counsel to startups, emerging companies,
-                  investors, and family offices. With over eight years of
-                  experience, she brings valuable knowledge and industry
-                  insights to her clients.
-                </p>
-
-                <p className="mt-6">
-                  Moe Odele also has experience working in academia, where she
-                  has contributed her expertise as a legal practitioner and
-                  guest lecturer to US educational institutions. She is
-                  dedicated to access to justice and women empowerment and has
-                  an unwavering support for non-profit organisations and impact
-                  investing industries.
-                </p>
-
-                <p className="mt-6">
-                  Beyond her legal career, Moe is an avid traveler who loves
-                  learning about diverse food and cultures. She is currently
-                  embarking on a quest to visit every country in the World.
-                </p>
+                <p dangerouslySetInnerHTML={{ __html: biography }} />
               </div>
             </div>
 
@@ -110,11 +129,7 @@ export default function LegalChild() {
                 Education
               </h2>
               <div className="text-sm lg:text-base w-[31rem] text-cgray">
-                <ul>
-                  <li>Lagos State University – LLB</li>
-                  <li>Columbia Law School- LLM</li>
-                  <li>Nigerian Law school- BL</li>
-                </ul>
+                <ul dangerouslySetInnerHTML={{ __html: education }} />
               </div>
             </div>
           </div>

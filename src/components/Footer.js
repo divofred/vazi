@@ -1,8 +1,10 @@
-import Link from "next/link";
-import Image from "next/image";
-import ButtonOne from "./ButtonOne";
+import Link from 'next/link';
+import Image from 'next/image';
+import ButtonOne from './ButtonOne';
 
 export default function Footer() {
+  const d = new Date();
+  let year = d.getFullYear();
   return (
     <>
       <footer className="py-24 bg-[#001D20] bg-footer1  overflow-hidden relative">
@@ -24,7 +26,7 @@ export default function Footer() {
               <div className="grid grid-flow-col gap-2 items-center ">
                 <img src="/logo.png" className="w-8 hidden lg:block" />
                 <p className=" text-sub text-[8px] lg:text-sm">
-                  Copyright 2022 Vazi Legal Business Attorneys. All Rights
+                  Copyright {year} Vazi Legal Business Attorneys. All Rights
                   Reserved.
                 </p>
               </div>

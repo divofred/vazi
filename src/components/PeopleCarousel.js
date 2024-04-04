@@ -1,10 +1,10 @@
 // Carousel.jsx
 
-import React, { useRef } from "react";
-import Slider from "react-slick";
-import PersonCard from "./PersonCard";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React, { useRef } from 'react';
+import Slider from 'react-slick';
+import PersonCard from './PersonCard2';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const Carousel = ({ people }) => {
   const sliderRef = useRef(null);
@@ -14,7 +14,7 @@ const Carousel = ({ people }) => {
     infinite: true,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 1
   };
 
   const goToNext = () => {
