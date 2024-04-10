@@ -1,14 +1,14 @@
-import React from 'react';
-import Link from 'next/link';
-import HeroSection from '@/components/HeroSection';
-import PersonCard from '@/components/PersonCard';
-import peopleData from '@/components/data/peopleData';
+import React from "react";
+import Link from "next/link";
+import HeroSection from "@/components/HeroSection";
+import PersonCard from "@/components/PersonCard";
+import peopleData from "@/components/data/peopleData";
 
 export async function getLegalData() {
-  const res = await fetch('https://vazilegal.com/graphql', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    cache: 'no-store',
+  const res = await fetch("https://vazilegal.com/graphql", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    cache: "no-store",
     body: JSON.stringify({
       query: `
       {
@@ -26,8 +26,8 @@ export async function getLegalData() {
           }
         } 
       }
-         `
-    })
+         `,
+    }),
   });
 
   const { data } = await res.json();
@@ -51,11 +51,11 @@ export default async function legalteam() {
         <div className="container">
           <div className="">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-5 mx-auto place-items-center max-w-[53.8rem] ">
-              {data.reverse().map(legalTeamMember => (
+              {data.reverse().map((legalTeamMember) => (
                 <PersonCard
                   key={legalTeamMember.id}
                   person={legalTeamMember}
-                  href={'/people/' + legalTeamMember.slug}
+                  href={"/people/" + legalTeamMember.slug}
                 />
               ))}
             </div>

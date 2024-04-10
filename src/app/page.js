@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -147,7 +148,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       <section className="mt-[5%] bg-gradient-to-r from-[#e3f8fa9f] via-white to-[#edf9fca1] py-2 ">
         <div className="container ">
           <div>
@@ -160,7 +160,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       <section className="mt-[3%] ">
         <div className="container">
           <div className="mt-10 px-5 w-full md:w-[48rem] lg:w-[58rem] xl:w-[64rem] overflow-hidden lg:overflow-visible  mx-auto  items-center ">
@@ -168,7 +167,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       <section className="sm:mt-[4%] bg-lines pt-[5%] pb-[15%] sm:pb-[10%] px-[5%] sm:px-0 ">
         <div className="container">
           <div class="relative">
