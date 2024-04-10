@@ -34,10 +34,10 @@ const BlogPost = ({ posts }) => {
                 <p>Category</p>
                 <p>{count} Comments</p>
               </div>
-              <h2 className=" lg:text-xl font-bold mt-7 textgreen lg:h-[2rem]">
+              <h2 className=" lg:text-xl font-bold mt-7 textgreen ">
                 {post.title}
               </h2>
-              <p className="text-xs lg:text-sm w-[17rem] lg:w-[21rem] mt-8 textgray">
+              <p className=" text-xs lg:text-sm w-[17rem] lg:w-[21rem] mt-4 textgray">
                 {text + "..."}
               </p>
               <Link

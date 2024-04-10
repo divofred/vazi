@@ -100,7 +100,7 @@ body {
 }
 
 .gradient-blogpost {
-  @apply bg-gradient-to-t from-[rgb(254,177,1)] to-[rgba(237,239,240,0.4)];
+  @apply bg-gradient-to-t from-[#feaa01] to-[rgba(237,239,240,0.4)];
 }
 
 .gradient-hero-span {

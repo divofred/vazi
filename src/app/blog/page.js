@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import Header from "@/components/Header";
@@ -11,7 +12,7 @@ async function getData() {
     body: JSON.stringify({
       query: `
          query HomePageQuery {
-       posts(first: 8) {
+       posts(first: 20) {
        nodes {
         id
         slug
@@ -148,20 +149,7 @@ export default async function blog() {
             <h3 className="hidden lg:block text-[0.65rem] tracking-[0.2rem] mb-1 text-[#93B6BC]">
               CATEGORIES
             </h3>
-            <div className="flex flex-col lg:flex-row gap-y-4 justify-between lg:items-center">
-              <div>
-                <div className="flex gap-x-4 text-xs lg:text-sm text-[#8EB3B9]">
-                  <Link href={"/"} className="hover:text-[#334B4F]">
-                    Startup Guide
-                  </Link>
-                  <Link href={"/"} className="hover:text-[#334B4F]">
-                    Compliance
-                  </Link>
-                  <Link href={"/"} className="hover:text-[#334B4F]">
-                    Agreements
-                  </Link>
-                </div>
-              </div>
+            <div className="mt-2 flex flex-col lg:flex-row gap-y-4 justify-between lg:items-center">
               <div>
                 <div className="relative flex justify-between items-center w-[21rem] lg:w-[23rem]">
                   <div className="absolute left-0 p-3">

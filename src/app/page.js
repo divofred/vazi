@@ -1,23 +1,23 @@
-'use client';
-import Image from 'next/image';
-import Link from 'next/link';
+"use client";
+import Image from "next/image";
+import Link from "next/link";
 
-import HeroSection from '../components/HeroSection';
-import Content from '../components/Content';
+import HeroSection from "../components/HeroSection";
+import Content from "../components/Content";
 
-import GradientImg from '@/components/GradientImg';
-import gcards from '@/components/GradientData';
+import GradientImg from "@/components/GradientImg";
+import gcards from "@/components/GradientData";
 
-import CardCarousel from '../components/CardCarousel';
-import GradientCarousel from '@/components/GradientCarousel';
+import CardCarousel from "../components/CardCarousel";
+import GradientCarousel from "@/components/GradientCarousel";
 
-import brandData from '../components/data/brandData';
+import brandData from "../components/data/brandData";
 
-import { cards } from '../components/CardData.js';
-import BrandImages from '@/components/BrandImages';
-import featuredData from '@/components/data/featuredData';
-import Marquee from 'react-fast-marquee';
-import Fade from 'react-reveal/Fade';
+import { cards } from "../components/CardData.js";
+import BrandImages from "@/components/BrandImages";
+import featuredData from "@/components/data/featuredData";
+import Marquee from "react-fast-marquee";
+import Fade from "react-reveal/Fade";
 
 export default function Home() {
   return (
@@ -163,8 +163,7 @@ export default function Home() {
 
       <section className="mt-[3%] ">
         <div className="container">
-          <div className="flex flex-col sm:flex-row gap-x-7 items-center justify-center"></div>
-          <div className="  mt-10 px-5 w-full md:w-[48rem] lg:w-[58rem] xl:w-[64rem] overflow-hidden lg:overflow-visible  mx-auto  items-center ">
+          <div className="mt-10 px-5 w-full md:w-[48rem] lg:w-[58rem] xl:w-[64rem] overflow-hidden lg:overflow-visible  mx-auto  items-center ">
             <GradientCarousel gcards={gcards} />
           </div>
         </div>

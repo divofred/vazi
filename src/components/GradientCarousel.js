@@ -55,7 +55,7 @@ const GradientCarousel = ({ gcards, slidesToShow }) => {
 
   return (
     <div className="relative">
-      <div className="">
+      <div>
         <Slider ref={sliderRef} {...settings}>
           {gcards.map((gcard, index) => (
             <div key={index}>
