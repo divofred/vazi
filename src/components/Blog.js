@@ -4,7 +4,7 @@ import Link from "next/link";
 import ReactHtmlParser from "react-html-parser";
 
 export default function Blog({ post }) {
-  console.log(post.featuredImage.node.sourceUrl);
+  
   const originalDate = new Date(post.date);
   const options = { year: "numeric", month: "short", day: "numeric" };
 

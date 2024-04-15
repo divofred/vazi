@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 
 const PersonCard = ({ person, href }) => {
-  console.log(person);
+  
   const imageSrc = person.featuredImage.node.sourceUrl;
   const name = person.title;
 

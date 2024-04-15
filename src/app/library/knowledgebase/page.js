@@ -1,9 +1,9 @@
-"use client";
-import React from "react";
-import Link from "next/link";
-import Header from "@/components/Header";
-import { cards } from "@/components/CardData.js";
-import CardCarousel from "@/components/CardCarousel";
+'use client';
+import React from 'react';
+import Link from 'next/link';
+import Header from '@/components/Header';
+import { cards } from '@/components/CardData.js';
+import CardCarousel from '@/components/CardCarousel';
 
 export default function Inner() {
   return (
@@ -84,9 +84,9 @@ export default function Inner() {
       </section>
 
       <section>
-        <div class="container max-w-5xl mx-auto  py-8">
-          <div class="flex flex-wrap gap-x-[5rem] justify-center ">
-            <div class="w-[60%] ">
+        <div className="container max-w-5xl mx-auto  py-8">
+          <div className="flex flex-wrap gap-x-[5rem] justify-center ">
+            <div className="w-[60%] ">
               <div className=" ml-10 justify-between">
                 <div className=" mb-5">
                   <h2 className="font-bold leading-5 text-[#027889]">
@@ -113,7 +113,7 @@ export default function Inner() {
                             d="M5.5 0C3 0 0.865 1.555 0 3.75C0.865 5.945 3 7.5 5.5 7.5C8 7.5 10.135 5.945 11 3.75C10.135 1.555 8 0 5.5 0ZM5.5 6.25C4.12 6.25 3 5.13 3 3.75C3 2.37 4.12 1.25 5.5 1.25C6.88 1.25 8 2.37 8 3.75C8 5.13 6.88 6.25 5.5 6.25ZM5.5 2.25C4.67 2.25 4 2.92 4 3.75C4 4.58 4.67 5.25 5.5 5.25C6.33 5.25 7 4.58 7 3.75C7 2.92 6.33 2.25 5.5 2.25Z"
                             fill="#646464"
                           />
-                        </svg>{" "}
+                        </svg>{' '}
                         345 views
                       </span>
 
@@ -145,7 +145,7 @@ export default function Inner() {
                             d="M5.5 0C3 0 0.865 1.555 0 3.75C0.865 5.945 3 7.5 5.5 7.5C8 7.5 10.135 5.945 11 3.75C10.135 1.555 8 0 5.5 0ZM5.5 6.25C4.12 6.25 3 5.13 3 3.75C3 2.37 4.12 1.25 5.5 1.25C6.88 1.25 8 2.37 8 3.75C8 5.13 6.88 6.25 5.5 6.25ZM5.5 2.25C4.67 2.25 4 2.92 4 3.75C4 4.58 4.67 5.25 5.5 5.25C6.33 5.25 7 4.58 7 3.75C7 2.92 6.33 2.25 5.5 2.25Z"
                             fill="#646464"
                           />
-                        </svg>{" "}
+                        </svg>{' '}
                         345 views
                       </button>
                     </div>
@@ -170,7 +170,7 @@ export default function Inner() {
                 <div className="flex">
                   <p>Was this helpful?</p>
                   <button className="flex items-center space-x-1 text-[12px]">
-                    {" "}
+                    {' '}
                     <svg
                       width="7"
                       height="9"
@@ -188,8 +188,8 @@ export default function Inner() {
                 </div>
               </div>
             </div>
-            <div class="w-[15rem] ">
-              <div class="">
+            <div className="w-[15rem] ">
+              <div className="">
                 <div>
                   <div className="relative flex justify-between items-center w-[21rem] lg:w-full">
                     <div className="absolute left-0 p-3">
@@ -229,15 +229,15 @@ export default function Inner() {
                   </div>
                 </div>
                 <div className="flex gap-x-1.5 mt-5 mb-8">
-                  <Link className=" p-2 rounded-sm bg-[#D8E8EC]" href={""}>
+                  <Link className=" p-2 rounded-sm bg-[#D8E8EC]" href={''}>
                     <img src="/library/facebook.svg" className="w-4"></img>
                   </Link>
 
-                  <Link className=" p-2 rounded-sm bg-[#D8E8EC]" href={""}>
+                  <Link className=" p-2 rounded-sm bg-[#D8E8EC]" href={''}>
                     <img src="/library/twitter.svg" className="w-4"></img>
                   </Link>
 
-                  <Link className=" p-2 rounded-sm bg-[#D8E8EC]" href={""}>
+                  <Link className=" p-2 rounded-sm bg-[#D8E8EC]" href={''}>
                     <img src="/library/linkedIn.svg" className="w-4"></img>
                   </Link>
                 </div>
@@ -250,24 +250,24 @@ export default function Inner() {
 
                   <ul className="text-xs mt-3 list-disc ">
                     <li className="mb-5">
-                      <Link href={""}>
+                      <Link href={''}>
                         How To Decide How Many Shares To Give Your Co-Founder
                       </Link>
                     </li>
 
                     <li className="mb-5">
-                      <Link href={""}>
+                      <Link href={''}>
                         How To Decide How Many Shares To Give Your Co-Founder
                       </Link>
                     </li>
 
                     <li className="mb-5">
-                      <Link href={""}>
+                      <Link href={''}>
                         How To Decide How Many Shares To Give Your Co-Founder
                       </Link>
                     </li>
                     <li className="mb-5">
-                      <Link href={""}>
+                      <Link href={''}>
                         How To Decide How Many Shares To Give Your Co-Founder
                       </Link>
                     </li>

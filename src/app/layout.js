@@ -1,11 +1,6 @@
-import "./globals.css";
+import './globals.css';
 
-import Footer from "../components/Footer";
-
-export const metadata = {
-  title: "VaziLegal ",
-  description: "VaziLegal Description",
-};
+import Footer from '../components/Footer';
 
 export default function RootLayout({ children }) {
   return (
