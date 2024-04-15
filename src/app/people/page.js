@@ -43,7 +43,7 @@ const response = await fetch(
 );
 const metaTags = JSON.parse(await response.text());
 
-export default async function legalteam() {
+export default async function Legalteam() {
   const data = await getLegalData();
   return (
     <>
