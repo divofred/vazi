@@ -38,12 +38,13 @@ export async function getLegalData() {
   const legalTeamMembers = data.legalTeamMembers.nodes;
   return legalTeamMembers;
 }
-const response = await fetch(
-  `https://admin.vazilegal.com/wp-json/rankmath/v1/getHead?url=https://admin.vazilegal.com/legal-team`
-);
-const metaTags = JSON.parse(await response.text());
+
 
 export default async function Legalteam() {
+  const response = await fetch(
+    `https://admin.vazilegal.com/wp-json/rankmath/v1/getHead?url=https://admin.vazilegal.com/legal-team`
+  );
+  const metaTags = JSON.parse(await response.text());
   const data = await getLegalData();
   return (
     <>
