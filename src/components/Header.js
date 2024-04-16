@@ -1,9 +1,7 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
-import { usePathname } from "next/navigation";
+import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 const Header = () => {
   const pathname = usePathname();
@@ -25,52 +23,52 @@ const Header = () => {
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex mx-auto space-x-5">
-            <Link
-              href={"/"}
-              className={pathname === "/" ? "active" : "" + "alink"}
+            <a
+              href={'/'}
+              className={pathname === '/' ? 'active' : '' + 'alink'}
             >
               Home
-            </Link>
+            </a>
             <img src="/ellipse.svg" className="w-[3px]  inline-flex" />
-            <Link
-              href={"/about"}
-              className={pathname === "/about" ? "active" : "" + "alink"}
+            <a
+              href={'/about'}
+              className={pathname === '/about' ? 'active' : '' + 'alink'}
             >
               About
-            </Link>
+            </a>
             <img src="/ellipse.svg" className="w-[3px]  inline-flex" />
-            <Link
-              href={"/services"}
-              className={pathname === "/services" ? "active" : "" + "alink"}
+            <a
+              href={'/services'}
+              className={pathname === '/services' ? 'active' : '' + 'alink'}
             >
               Services
-            </Link>
+            </a>
             <img src="/ellipse.svg" className="w-[3px]  inline-flex" />
-            <Link
-              href={"/people"}
-              className={pathname.includes("/people") ? "active" : "" + "alink"}
+            <a
+              href={'/people'}
+              className={pathname.includes('/people') ? 'active' : '' + 'alink'}
             >
               People
-            </Link>
+            </a>
             {/* <img src="/ellipse.svg" className="w-[3px] inline-flex" />
-            <Link
+            <a
               href={"/blog"}
               className={pathname === "/blog" ? "active" : "" + "alink"}
             >
               Blog
-            </Link> */}
+            </a> */}
           </div>
 
           {/* Desktop Menu - Startup Library */}
           <div className="hidden lg:flex">
             <div className="py-2 px-3 hover:bg-opacity-0 transition duration-300  bg-white bg-opacity-10 rounded-[16.93px]  border-[#5ac8d98c] border-2  justify-center items-center gap-1 inline-flex">
-              {" "}
-              <Link
-                href={"/library"}
+              {' '}
+              <a
+                href={'/library'}
                 className="text-center text-cyan-100 text-xs font-semibold  capitalize"
               >
                 Startup Library
-              </Link>
+              </a>
             </div>
           </div>
 
@@ -102,47 +100,47 @@ const Header = () => {
         <div className=" ">
           <div
             className={`lg:hidden mt-7 space-y-4 flex text-center pr-4  flex-col ${
-              isMobileMenuVisible ? "" : "hidden"
+              isMobileMenuVisible ? '' : 'hidden'
             }`}
           >
-            <Link
-              href={"/"}
+            <a
+              href={'/'}
               className="text-white text-[13px] hover:text-cyan-200 font-semibold"
             >
               Home
-            </Link>
-            <Link
-              href={"/about"}
+            </a>
+            <a
+              href={'/about'}
               className="text-white text-[13px] hover:text-cyan-200 font-semibold"
             >
               About
-            </Link>
-            <Link
-              href={"/services"}
+            </a>
+            <a
+              href={'/services'}
               className="text-white text-[13px] hover:text-cyan-200 font-semibold"
             >
               Services
-            </Link>
+            </a>
 
-            <Link
-              href={"/people"}
+            <a
+              href={'/people'}
               className="text-white text-[13px] hover:text-cyan-200 font-semibold"
             >
               People
-            </Link>
+            </a>
 
-            {/* <Link
+            {/* <a
               href={"/blog"}
               className="text-white text-[13px] hover:text-cyan-200 font-semibold"
             >
               Blog
-            </Link> */}
-            <Link
-              href={"/"}
+            </a> */}
+            <a
+              href={'/'}
               className="text-white text-[13px] hover:text-cyan-200 font-semibold"
             >
               Startup Library
-            </Link>
+            </a>
           </div>
         </div>
       </div>

@@ -1,19 +1,19 @@
 // components/BlogPost.js
-"use client";
-import Link from "next/link";
-import { convert } from "html-to-text";
+'use client';
+import Link from 'next/link';
+import { convert } from 'html-to-text';
 
 const BlogPost = ({ posts }) => {
   return (
     <>
-      {posts.map((post) => {
+      {posts.map(post => {
         const originalDate = new Date(post.date);
-        const options = { year: "numeric", month: "short", day: "numeric" };
+        const options = { year: 'numeric', month: 'short', day: 'numeric' };
 
-        const formattedDate = originalDate.toLocaleDateString("en-US", options);
+        const formattedDate = originalDate.toLocaleDateString('en-US', options);
         const truncatedText = post.content.slice(0, 122);
         const options1 = {
-          wordwrap: 130,
+          wordwrap: 130
           // ...
         };
         const text = convert(truncatedText, options1);
@@ -38,13 +38,13 @@ const BlogPost = ({ posts }) => {
                 {post.title}
               </h2>
               <p className=" text-xs lg:text-sm w-[17rem] lg:w-[21rem] mt-4 textgray">
-                {text + "..."}
+                {text + '...'}
               </p>
-              <Link
+              <a
                 href={href}
                 className="flex gap-2 items-center text13 mt-10 textglink"
               >
-                Read more{" "}
+                Read more{' '}
                 <svg
                   width="12"
                   height="12"
@@ -57,7 +57,7 @@ const BlogPost = ({ posts }) => {
                     fill="#1193A9"
                   />
                 </svg>
-              </Link>
+              </a>
             </div>
             <div className="relative rounded-lg overflow-hidden mx-3 mt-8 ">
               <img

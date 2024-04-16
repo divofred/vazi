@@ -1,10 +1,8 @@
 // PersonCard.jsx
 
 import React from 'react';
-import Link from 'next/link';
 
 const PersonCard = ({ person, href }) => {
-  
   const imageSrc = person.featuredImage.node.sourceUrl;
   const name = person.title;
 
@@ -33,7 +31,7 @@ const PersonCard = ({ person, href }) => {
     </div>
   );
 
-  return <Link href={href}>{cardContent} </Link>;
+  return <a href={href}>{cardContent} </a>;
 };
 
 export default PersonCard;

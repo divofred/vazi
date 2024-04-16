@@ -1,14 +1,13 @@
-"use client";
-import Header from "@/components/Header";
-import Link from "next/link";
-import ReactHtmlParser from "react-html-parser";
+'use client';
+import Header from '@/components/Header';
+import Link from 'next/link';
+import ReactHtmlParser from 'react-html-parser';
 
 export default function Blog({ post }) {
-  
   const originalDate = new Date(post.date);
-  const options = { year: "numeric", month: "short", day: "numeric" };
+  const options = { year: 'numeric', month: 'short', day: 'numeric' };
 
-  const formattedDate = originalDate.toLocaleDateString("en-US", options);
+  const formattedDate = originalDate.toLocaleDateString('en-US', options);
   const htmlContent = post.content;
 
   return (
@@ -21,11 +20,11 @@ export default function Blog({ post }) {
           <div className="container  ">
             <div className="flex flex-col md:flex-row gap-x-10  max-w-[75rem] mx-auto">
               <div className=" max-w-[45rem] ">
-                <Link
-                  href={"/blog"}
+                <a
+                  href={'/blog'}
                   className="inline-flex place-items-center gap-x-1 text-[15px] text-[#7A7A7A]"
                 >
-                  {" "}
+                  {' '}
                   <svg
                     width="12"
                     height="12"
@@ -39,13 +38,13 @@ export default function Blog({ post }) {
                     />
                   </svg>
                   Blog
-                </Link>
+                </a>
                 <div className="relative overflow-hidden w-full rounded-lg h-[18rem]  items-end mt-7">
                   <img
                     src={post.featuredImage.node.sourceUrl}
                     className="absolute inset-0 w-full h-full object-cover rounded-lg"
                     alt="Blog Image"
-                    style={{ zIndex: "-1" }} // Lower z-index to place the image behind the text
+                    style={{ zIndex: '-1' }} // Lower z-index to place the image behind the text
                   />
                   <div className="z-10 text-white text-3xl font-semibold absolute bottom-7 left-7 mb-4">
                     {post.title}
@@ -148,8 +147,8 @@ export default function Blog({ post }) {
                       </div>
                     </form>
                     <small className="px-5 text-xs text-[#BBBBBB] ">
-                      Your email address{" "}
-                      <span className="text-semibold">will not be</span>{" "}
+                      Your email address{' '}
+                      <span className="text-semibold">will not be</span>{' '}
                       published
                     </small>
                     <div className="flex gap-x-1 px-5 mt-2">
@@ -161,7 +160,7 @@ export default function Blog({ post }) {
                         value="yes"
                       />
                       <label htmlFor="check" className="text-xs text-[#1193A9]">
-                        {" "}
+                        {' '}
                         Save my name and email in this browser for the next time
                         I comment.
                       </label>
@@ -172,28 +171,28 @@ export default function Blog({ post }) {
               <div className=" max-w-[13rem]  pt-[40%]">
                 <h2 className="text-[13.5px] font-semibold">Page Content</h2>
                 <div className="flex flex-col text-[13px] mt-3 text-[#737373] ">
-                  <Link href={"/blog"} className="mb-2.5">
+                  <Link href={'/blog'} className="mb-2.5">
                     Introduction
                   </Link>
-                  <Link href={"/blog"} className="mb-2.5">
+                  <Link href={'/blog'} className="mb-2.5">
                     Cap Table Components
                   </Link>
-                  <Link href={"/blog"} className="mb-2.5">
+                  <Link href={'/blog'} className="mb-2.5">
                     Data collection to create a Cap table
                   </Link>
-                  <Link href={"/blog"} className="mb-2.5">
+                  <Link href={'/blog'} className="mb-2.5">
                     How a Cap table should be structured and formatted
                   </Link>
-                  <Link href={"/blog"} className="mb-2.5">
+                  <Link href={'/blog'} className="mb-2.5">
                     Cap table management platforms
                   </Link>
-                  <Link href={"/blog"} className="mb-2.5">
+                  <Link href={'/blog'} className="mb-2.5">
                     Cap table best practices
                   </Link>
-                  <Link href={"/blog"} className="mb-2.5">
+                  <Link href={'/blog'} className="mb-2.5">
                     Bottom line
                   </Link>
-                  <Link href={"/blog"} className="mb-2.5">
+                  <Link href={'/blog'} className="mb-2.5">
                     FAQs
                   </Link>
                 </div>
