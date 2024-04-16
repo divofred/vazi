@@ -57,7 +57,7 @@ export default async function LegalChild() {
     });
   });
   const response = await fetch(
-    `https://admin.vazilegal.com/wp-json/rankmath/v1/getHead?url=https://admin.vazilegal.com/legal-team${name.replace(
+    `https://admin.vazilegal.com/wp-json/rankmath/v1/getHead?url=https://admin.vazilegal.com/legal-team/${name.replace(
       '/people/',
       ''
     )}`

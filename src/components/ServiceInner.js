@@ -59,7 +59,7 @@ export default async function ServiceInnerPage() {
         <div className="container">
           <div className="">
             <div className="max-w-[53.8rem] border mx-auto rounded-xl px-6 md:px-12 gradient-card2 py-8">
-              <Link
+              <link
                 href={'/services'}
                 className="text-xs inline-flex gap-1 text-[#6F898C] items-center "
               >
@@ -76,7 +76,7 @@ export default async function ServiceInnerPage() {
                   />
                 </svg>
                 Services
-              </Link>
+              </link>
               <div className="flex mt-6 justify-between">
                 <div className=" max-w-md">
                   <h2 className="text-[1.65rem] lg:text-4xl font-bold gradient-text">
