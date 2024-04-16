@@ -147,7 +147,7 @@ export default async function HomePage() {
           <div>
             <div className=" items-center justify-center ">
               <h2 className="w-48 lg:w-[22rem] text-2xl lg:text-[2.6rem] text-center  mx-auto text-basic leading-none  font-extrabold mb-6 lg:my-4">
-                Industry leaders trust us
+                Industry leaders
                 <span className="text-[#FFA800]"> trust us </span>
               </h2>
             </div>
