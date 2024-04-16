@@ -1,9 +1,9 @@
 // components/Librarycard.js
-import Link from "next/link";
+import Link from 'next/link';
 
 const Librarycard = ({ title, stitle, slink }) => {
   // Replace newline character with <br> tag
-  const formattedTitle = title.replace(/\n/g, "<br>");
+  const formattedTitle = title.replace(/\n/g, '<br>');
 
   return (
     <Link href={`/${slink}`}>
@@ -26,7 +26,7 @@ const Librarycard = ({ title, stitle, slink }) => {
           <h2
             className="w-40 leading-tight font-semibold"
             dangerouslySetInnerHTML={{ __html: formattedTitle }}
-          ></h2>
+          />
           <p className="text-[8px] mt-1 ">{stitle} Topics</p>
         </div>
 

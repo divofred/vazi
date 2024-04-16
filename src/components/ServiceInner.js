@@ -42,6 +42,7 @@ export default async function ServiceInnerPage() {
   const sideImgRegex = /<img.*?id=\"sideimg\".*?src=\"(.*?)\".*?>/i;
   const sideImgMatch = service.content.match(sideImgRegex);
   const sideImgSrc = sideImgMatch ? sideImgMatch[1] : '';
+  console.log(sideImgSrc.replace('vazilegal', 'admin.vazilegal'), 'SIDEIMG');
   const cards = data.map(service => {
     return {
       title: service.title,
@@ -59,7 +60,7 @@ export default async function ServiceInnerPage() {
         <div className="container">
           <div className="">
             <div className="max-w-[53.8rem] border mx-auto rounded-xl px-6 md:px-12 gradient-card2 py-8">
-              <link
+              <a
                 href={'/services'}
                 className="text-xs inline-flex gap-1 text-[#6F898C] items-center "
               >
@@ -76,7 +77,7 @@ export default async function ServiceInnerPage() {
                   />
                 </svg>
                 Services
-              </link>
+              </a>
               <div className="flex mt-6 justify-between">
                 <div className=" max-w-md">
                   <h2 className="text-[1.65rem] lg:text-4xl font-bold gradient-text">
@@ -87,7 +88,10 @@ export default async function ServiceInnerPage() {
                   </p>
                 </div>
                 <div className="hidden lg:block self-center">
-                  <img src={sideImgSrc} className="w-[14rem]" />
+                  <img
+                    src={sideImgSrc?.replace('vazilegal', 'admin.vazilegal')}
+                    className="w-[14rem]"
+                  />
                 </div>
               </div>
             </div>
@@ -128,12 +132,12 @@ export default async function ServiceInnerPage() {
                   dangerouslySetInnerHTML={{ __html: list3 }}
                 />
                 <div className="mt-5">
-                  <Link
+                  <a
                     href={'/'}
                     className=" text-left border-[#e9ca871f] bg-gradient-to-r from-[#FDDE99] to-[#FEB101] hover:from-[#0037402d] hover:to-[#5bcedf5b] px-5 py-2.5 rounded-md text-xs text-white font-semibold"
                   >
                     Talk to our Startup Advisory Team
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>

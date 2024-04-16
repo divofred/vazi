@@ -37,15 +37,7 @@ export default async function LegalChild() {
 
   const education = educationMatch ? educationMatch[1].trim() : '';
 
-  const peopleData = [
-    // {
-    //   id: service.id,
-    //   imageSrc: service.featuredImage.node.sourceUrl,
-    //   name: service.title,
-    //   role,
-    //   href: '/people/' + service.slug
-    // }
-  ];
+  const peopleData = [];
 
   data.reverse().map(service => {
     peopleData.push({
