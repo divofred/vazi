@@ -20,7 +20,38 @@ export default async function About() {
     <>
       <Helmet>{parse(metaTags.head)}</Helmet>
 
+<<<<<<< HEAD
       <main className="bg-wave bg-repeat">
+=======
+      <section className="pt-24 pb-8 px-5">
+        <div className="container">
+          <Reveal>
+            {" "}
+            <div className=" justify-center grid grid-cols-1  lg:grid-cols-3  gap-4 border w-fit mx-auto p-4 rounded-3xl bg-gradient-to-b from-[#063E43] to-[#011E21]">
+              <AboutCard
+                iconSrc="/icons/flag.svg"
+                title="Truly Collaborative"
+                content="Our team believes in the power of partnerships. By working closely with our clients, we deeply understand their vision and develop legal strategies that fit their business goals. We simplify complex legal terms into clear, actionable steps, making the legal process less intimidating "
+              />
+
+              <AboutCard
+                iconSrc="/icons/fence.svg"
+                title="Ever Evolving"
+                content="The world progresses, so do we. Our team is dedicated to constant learning and keeping our legal solutions ahead in the fast-moving tech world."
+              />
+
+              <AboutCard
+                iconSrc="/icons/badge.svg"
+                title="Dedicated Hands"
+                content="As a practice we are passionate about our clients and our relationships are built on trust and transparency. This ensures our clients are never alone very step of the way."
+              />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="mt-36 ">
+>>>>>>> 8cc782dcf1736dea386bd3418207aff788de6ef3
         <div>
           <HeroSection
             title="We are more than just a law firm"
@@ -28,6 +59,7 @@ export default async function About() {
           />
         </div>
 
+<<<<<<< HEAD
         <section className="pt-24 pb-8 px-5">
           <div className="container">
             <Reveal>
@@ -176,6 +208,25 @@ export default async function About() {
                     We are the{' '}
                     <span className="text-[#4E7A81]">
                       leading tech law firm{' '}
+=======
+      <section className=" pt-[9em] pb-[9rem] align-middle px-4">
+        <Fade bottom>
+          <div className="md:max-w-[40rem] xl:max-w-fit lg:h-fit place-content-center items-center mx-auto border rounded-3xl p-[10px] bg-gradient-to-b from-[#046D7E]  to-[rgba(255,179,0,0.2)]">
+            <div className="p-6 sm:p-9 rounded-2xl bg-white">
+              <div className="md:w-[35rem] xl:w-[51rem]">
+                <h2 className="text-2xl md:text-3xl lg:text-5xl lg:leading-[3.6rem]  font-extrabold sm:leading-[3.5rem] text-[#1B383B]">
+                  We are the{" "}
+                  <span className="text-[#4E7A81]">leading tech law firm </span>
+                  representing investors, start-up and technology driven
+                  companies <span className="text-[#FFB100]">globally</span>.
+                </h2>
+                <p className="text-base mt-9 mb-1 text-[#1B383B] font-medium ">
+                  <span className="font-semibold">
+                   
+                    <span className="text-[#56868E]">
+                      With over 30 years of combined
+                      experience.
+>>>>>>> 8cc782dcf1736dea386bd3418207aff788de6ef3
                     </span>
                     representing investors, start-up and technology driven
                     companies <span className="text-[#FFB100]">globally</span>.
