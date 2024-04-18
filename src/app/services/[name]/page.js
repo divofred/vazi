@@ -1,25 +1,23 @@
-'use client';
 import React from 'react';
 
-import { usePathname } from 'next/navigation';
-
-import { Helmet } from 'mys-react-helmet';
-import parse from 'html-react-parser';
-
 import ServiceInnerPage from '@/components/ServiceInner';
+import { getData } from '@/app/services/page';
+import { headers } from 'next/headers';
 
 export default async function Inner() {
-  const name = usePathname();
+  const headersList = headers();
+
+  const fullUrl = headersList.get('referer') || '';
+
+  const url = new URL(fullUrl);
+  const pathname = url.pathname;
+
+  const data = await getData();
 
   const response = await fetch(
-    `https://admin.vazilegal.com/wp-json/rankmath/v1/getHead?url=https://admin.vazilegal.com${name}`
+    `https://admin.vazilegal.com/wp-json/rankmath/v1/getHead?url=https://admin.vazilegal.com${pathname}`
   );
   const metaTags = JSON.parse(await response.text());
 
-  return (
-    <>
-      <Helmet>{parse(metaTags.head)}</Helmet>
-      <ServiceInnerPage />
-    </>
-  );
+  return <ServiceInnerPage data={data} head={metaTags.head} />;
 }

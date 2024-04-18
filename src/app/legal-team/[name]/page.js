@@ -16,7 +16,7 @@ export default async function LegalChild() {
   const data = await getLegalData();
 
   const service = data.find(
-    service => service.slug === name.replace('/people/', '')
+    service => service.slug === name.replace('/legal-team/', '')
   );
   const positionRegex = /<p id=\"position\">(.*?)<\/p>/i;
 
@@ -45,12 +45,12 @@ export default async function LegalChild() {
       imageSrc: service.featuredImage.node.sourceUrl,
       name: service.title,
       role: service.content.match(positionRegex)[1].trim(),
-      href: '/people/' + service.slug
+      href: '/legal-team/' + service.slug
     });
   });
   const response = await fetch(
     `https://admin.vazilegal.com/wp-json/rankmath/v1/getHead?url=https://admin.vazilegal.com/legal-team/${name.replace(
-      '/people/',
+      '/legal-team/',
       ''
     )}`
   );
@@ -68,7 +68,7 @@ export default async function LegalChild() {
             <div className="">
               <div className="max-w-[54.8rem] h-[] border mx-auto rounded-xl px-5 lg:px-12 gradient-card3 pt-8">
                 <a
-                  href={'/people'}
+                  href={'/legal-team'}
                   className="text-xs inline-flex gap-1 text-[#6F898C] items-center "
                 >
                   <svg

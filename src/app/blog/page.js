@@ -1,9 +1,43 @@
-'use client';
 import React from 'react';
 import BlogPage from '@/components/BlogPage';
 
-import { Helmet } from 'mys-react-helmet';
-import parse from 'html-react-parser';
+async function getData() {
+  const res = await fetch('https://admin.vazilegal.com/graphql', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    cache: 'no-store',
+    body: JSON.stringify({
+      query: `
+         query HomePageQuery {
+       posts(first: 20) {
+       nodes {
+        id
+        slug
+        title
+        content
+        commentCount
+        date
+         comments{
+          nodes{
+            content
+          }
+        }
+        featuredImage{
+          node{
+            sourceUrl
+          }
+        }
+			}
+  	}
+	}
+          `
+    })
+  });
+
+  const json = await res.json();
+
+  return json.data.posts.nodes;
+}
 
 export default async function Blog() {
   const response = await fetch(
@@ -13,8 +47,7 @@ export default async function Blog() {
 
   return (
     <>
-      <Helmet>{parse(metaTags.head)}</Helmet>
-      <BlogPage />
+      <BlogPage head={metaTags.head} data={await getData()} />
     </>
   );
 }

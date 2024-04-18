@@ -1,14 +1,14 @@
-'use client';
-import Header from '@/components/Header';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import Blog from '@/components/Blog';
-
-import { Helmet } from 'mys-react-helmet';
-import parse from 'html-react-parser';
+'use server';
+import InnerBlogPage from '@/components/BlogInnerPage';
+import { headers } from 'next/headers';
 
 export default async function InnerBlog() {
-  const name = usePathname();
+  const headersList = headers();
+
+  const fullUrl = headersList.get('referer') || '';
+
+  const url = new URL(fullUrl);
+  const pathname = url.pathname;
 
   async function getData() {
     const res = await fetch('https://admin.vazilegal.com/graphql', {
@@ -18,7 +18,7 @@ export default async function InnerBlog() {
       body: JSON.stringify({
         query: `
            query post{
-         posts(where: {name: "${name}"}){
+         posts(where: {name: "${pathname}"}){
            nodes{
             title
             content
@@ -48,20 +48,9 @@ export default async function InnerBlog() {
   const data = await getData();
 
   const response = await fetch(
-    `https://admin.vazilegal.com/wp-json/rankmath/v1/getHead?url=https://admin.vazilegal.com${name}`
+    `https://admin.vazilegal.com/wp-json/rankmath/v1/getHead?url=https://admin.vazilegal.com${pathname}`
   );
   const metaTags = JSON.parse(await response.text());
 
-  return (
-    <>
-      <Helmet>{parse(metaTags.head)}</Helmet>
-
-      <main>
-        <div>
-          <Header />
-        </div>
-        <Blog post={data} />
-      </main>
-    </>
-  );
+  return <InnerBlogPage head={metaTags.head} data={data} />;
 }

@@ -1,8 +1,4 @@
-'use client';
 import ServicesPage from '@/components/ServicePage';
-
-import { Helmet } from 'mys-react-helmet';
-import parse from 'html-react-parser';
 
 export async function getData() {
   const res = await fetch('https://admin.vazilegal.com/graphql', {
@@ -41,10 +37,5 @@ export default async function Services() {
   );
   const metaTags = JSON.parse(await response.text());
 
-  return (
-    <>
-      <Helmet>{parse(metaTags.head)}</Helmet>
-      <ServicesPage />
-    </>
-  );
+  return <ServicesPage head={metaTags.head} data={await getData()} />;
 }
