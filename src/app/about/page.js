@@ -182,10 +182,9 @@ export default async function About() {
                   </h2>
                   <p className="text-base mt-9 mb-1 text-[#1B383B] font-medium ">
                     <span className="font-semibold">
-                      Our team is qualified with a robust network of
-                      multi-jurisdictional{' '}
+                      
                       <span className="text-[#56868E]">
-                        qualified lawyers with over 30 years of combined
+                        With over 30 years of combined
                         experience.
                       </span>
                     </span>
