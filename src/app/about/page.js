@@ -36,19 +36,19 @@ export default async function About() {
                 <AboutCard
                   iconSrc="/icons/flag.svg"
                   title="Truly Collaborative"
-                  content="A journey shared is a journey enriched, our team works closely with our clients, truly understanding their vision and crafting legal strategies that align with their business objectives, we break complex legal jargon into understandable, actionable legal actions, central to our mission is making legal processes less daunting for our clients."
+                  content="Our team believes in the power of partnerships. By working closely with our clients, we deeply understand their vision and develop legal strategies that fit their business goals. We simplify complex legal terms into the clear, actionable steps, maing the legal process less intimidating."
                 />
 
                 <AboutCard
                   iconSrc="/icons/fence.svg"
                   title="Ever Evolving"
-                  content="The world changes, and so do we. Our team is committed to continuous learning thus ensuring our legal solutions are always a step ahead in the fast paced tech eco system.  ready to meet the demands of the business environment."
+                  content="The world progresses, so do we. Our team is dedicated to constant learning and keeping our legal solutions ahead in the fast-moving tech world."
                 />
 
                 <AboutCard
                   iconSrc="/icons/badge.svg"
                   title="Dedicated Hands"
-                  content="Our relationships are built on trust and transparency. We uphold the highest standards of professionalism, ensuring that our clients always know they are in reliable hands. As a practice, we enable our clients to make informed decisions confidently by offering not just  legal advice but providing legal empowerment."
+                  content="As a practice we are passionate about our clients and our relationships are built on trust and transparency. This ensures our clients are never alone every step of the way."
                 />
               </div>
             </Reveal>
