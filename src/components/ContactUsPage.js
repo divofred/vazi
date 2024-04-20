@@ -8,7 +8,70 @@ import { checkboxesData2 } from '@/components/data/checkboxesData2';
 import { Helmet } from 'mys-react-helmet';
 import parse from 'html-react-parser';
 
+import { useState } from 'react';
+
 export default function ContactUsPage({ head }) {
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [selectedValues, setSelectedValues] = useState([]);
+  const [selectedValue, setSelectedValue] = useState('');
+  const [howDidYouHearAboutUs, setHowDidYouHearAboutUs] = useState('');
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    const res = await fetch('/api', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        fullName,
+        email,
+
+        selectedValues,
+        selectedValue,
+        howDidYouHearAboutUs
+      })
+    });
+
+    const data = await res.json();
+
+    console.log(data);
+  };
+
+  const handleFullNameChange = e => {
+    setFullName(e.target.value);
+    console.log(e.target.value);
+  };
+
+  const handleEmailChange = e => {
+    setEmail(e.target.value);
+    console.log(e.target.value);
+  };
+
+  const handleHowDidYouHearAboutUsChange = e => {
+    setHowDidYouHearAboutUs(e.target.value);
+    console.log(e.target.value);
+  };
+
+  const handleCheckboxChange = event => {
+    const { name } = event.target;
+    if (selectedValues.includes(name)) {
+      // If the value is already in the array, remove it
+      setSelectedValues(selectedValues.filter(value => value !== name));
+    } else {
+      // If the value is not in the array, add it
+      setSelectedValues([...selectedValues, name]);
+    }
+    console.log(selectedValues);
+  };
+
+  const handleYesOrNOChange = event => {
+    const { name } = event.target;
+    setSelectedValue(name);
+    console.log(event.target.name);
+  };
+
   return (
     <>
       <Helmet>{parse(head)}</Helmet>
@@ -42,7 +105,7 @@ export default function ContactUsPage({ head }) {
               </div>
 
               <div className=" w-full px-6 pt-6 pb-10 rounded-xl mt-5 md:mt-0 bg-[#E8F3F4]">
-                <form>
+                <form onSubmit={handleSubmit}>
                   <div>
                     <label className="text-xs px-4">Full Name</label>
                     <input
@@ -51,6 +114,8 @@ export default function ContactUsPage({ head }) {
                       placeholder="Enter your name"
                       className="border w-full text-sm px-4 rounded-lg py-2.5 mb-3 text-[0.8rem] mt-1"
                       name=""
+                      value={fullName}
+                      onChange={handleFullNameChange}
                     />
                   </div>
 
@@ -62,14 +127,31 @@ export default function ContactUsPage({ head }) {
                       placeholder="Enter email address"
                       className="border w-full text-sm px-4 rounded-lg py-2.5 mb-3 text-[0.8rem] mt-1"
                       name=""
+                      value={email}
+                      onChange={handleEmailChange}
                     />
                   </div>
                   <div>
                     <p className="text-xs px-4">Services</p>
                   </div>
                   <div>
-                    {checkboxesData.map(checkbox => (
-                      <CheckboxComponent key={checkbox.id} {...checkbox} />
+                    {checkboxesData.map(({ id, name, label }) => (
+                      <div
+                        className="flex mt-2 gap-x-3 text-xs px-4"
+                        key={Math.random()}
+                      >
+                        <input
+                          type="checkbox"
+                          id={id}
+                          name={name}
+                          className="border-gray-300"
+                          checked={selectedValues.includes(name)}
+                          onChange={handleCheckboxChange}
+                        />
+                        <label htmlFor={id} className="text-[#334B4F]">
+                          {label}
+                        </label>
+                      </div>
                     ))}{' '}
                   </div>
 
@@ -78,11 +160,12 @@ export default function ContactUsPage({ head }) {
                       How did you hear about us?
                     </label>
                     <input
-                      type="email"
+                      type="text"
                       required
-                      placeholder="Enter email address"
+                      placeholder=""
                       className="border w-full text-sm px-4 rounded-lg py-2.5 mb-3 text-[0.8rem] mt-1"
-                      name=""
+                      onChange={handleHowDidYouHearAboutUsChange}
+                      value={howDidYouHearAboutUs}
                     />
                   </div>
 
@@ -91,8 +174,23 @@ export default function ContactUsPage({ head }) {
                       Are we the first attorneys you have contacted?
                     </label>
                     <div>
-                      {checkboxesData2.map(checkbox => (
-                        <CheckboxComponent key={checkbox.id} {...checkbox} />
+                      {checkboxesData2.map(({ id, name, label }) => (
+                        <div
+                          className="flex mt-2 gap-x-3 text-xs px-4"
+                          key={Math.random()}
+                        >
+                          <input
+                            type="checkbox"
+                            id={id}
+                            name={name}
+                            className="border-gray-300"
+                            checked={selectedValue === name}
+                            onChange={handleYesOrNOChange}
+                          />
+                          <label htmlFor={id} className="text-[#334B4F]">
+                            {label}
+                          </label>
+                        </div>
                       ))}{' '}
                     </div>
                   </div>
