@@ -141,6 +141,13 @@ const Header = () => {
               Legal team
             </Link>
 
+            <Link
+              href={'/contact-us'}
+              className="text-white text-[13px] hover:text-cyan-200 font-semibold"
+            >
+              Contact Us
+            </Link>
+
             {/* <Link
               href={"/blog"}
               className="text-white text-[13px] hover:text-cyan-200 font-semibold"
