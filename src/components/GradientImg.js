@@ -9,7 +9,7 @@ const GradientImg = ({ gradientFrom, gradientTo, imageUrl }) => {
 
   return (
     <div
-      className="px-2 pt-2 pb-24 rounded-2xl w-fit mx-auto"
+      className="px-2 pt-2 pb-24 rounded-2xl h-[4rem] w-fit mx-auto"
       style={gradientStyle}
     >
       <div className="w-fit rounded-xl">
