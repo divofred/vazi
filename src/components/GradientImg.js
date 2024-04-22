@@ -13,7 +13,7 @@ const GradientImg = ({ gradientFrom, gradientTo, imageUrl }) => {
       style={gradientStyle}
     >
       <div className="w-fit rounded-xl">
-        <img src={imageUrl} alt="Gradient" />
+        <img src={imageUrl} classname="rounded" alt="Gradient" />
       </div>
     </div>
   );
