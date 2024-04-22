@@ -53,6 +53,15 @@ const Header = () => {
             >
               Legal team
             </Link>
+ <img src="/ellipse.svg" className="w-[3px]  inline-flex" />
+            <Link
+              href={'/contact-us'}
+              className={
+                pathname.includes('/contact-us') ? 'active' : '' + 'alink'
+              }
+            >
+              Contact Us
+            </Link>
             {/* <img src="/ellipse.svg" className="w-[3px] inline-flex" />
             <Link
               href={"/blog"}
