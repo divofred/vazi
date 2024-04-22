@@ -1,15 +1,15 @@
-import React from 'react';
-import BlogPage from '@/components/BlogPage';
+import React from "react";
+import BlogPage from "@/components/BlogPage";
 
 async function getData() {
-  const res = await fetch('https://admin.vazilegal.com/graphql', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    cache: 'no-store',
+  const res = await fetch("https://admin.vazilegal.com/graphql", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    cache: "no-store",
     body: JSON.stringify({
       query: `
          query HomePageQuery {
-       posts(first: 20) {
+       posts(first: 10) {
        nodes {
         id
         slug
@@ -30,8 +30,8 @@ async function getData() {
 			}
   	}
 	}
-          `
-    })
+          `,
+    }),
   });
 
   const json = await res.json();
@@ -45,9 +45,18 @@ export default async function Blog() {
   );
   const metaTags = JSON.parse(await response.text());
 
+  const data2 = await fetch(
+    "https://admin.vazilegal.com/wp-json/wp/v2/posts?_fields=id"
+  );
+  const totalCount = data2.headers.get("X-WP-Total");
+
   return (
     <>
-      <BlogPage head={metaTags.head} data={await getData()} />
+      <BlogPage
+        head={metaTags.head}
+        data={await getData()}
+        totalCount={totalCount}
+      />
     </>
   );
 }

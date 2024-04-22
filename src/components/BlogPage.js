@@ -1,12 +1,12 @@
-'use client';
-import React from 'react';
+"use client";
+import React from "react";
 
-import Header from '@/components/Header';
-import BlogPost from '@/components/BlogPost';
-import { Helmet } from 'mys-react-helmet';
-import parse from 'html-react-parser';
+import Header from "@/components/Header";
+import BlogPost from "@/components/BlogPost";
+import { Helmet } from "mys-react-helmet";
+import parse from "html-react-parser";
 
-export default function BlogPage({ head, data }) {
+export default function BlogPage({ head, data, totalCount }) {
   return (
     <>
       <Helmet>{parse(head)}</Helmet>
@@ -19,10 +19,10 @@ export default function BlogPage({ head, data }) {
             <div className="px-7">
               <div className="max-w-[58.8rem]  mx-auto mb-4 flex   lg:hidden justify-end">
                 <a
-                  href={'/'}
+                  href={"/"}
                   className="flex items-center gap-x-2 textglink font-semibold"
                 >
-                  {' '}
+                  {" "}
                   <svg
                     width="18"
                     height="16"
@@ -40,7 +40,7 @@ export default function BlogPage({ head, data }) {
                       strokeWidth="0.6"
                     />
                   </svg>
-                  Receive free letters from Vazi{' '}
+                  Receive free letters from Vazi{" "}
                 </a>
               </div>
               <div className=" mx-auto px-8 py-7  bg-[#EEF7F9] rounded-xl max-w-[58.8rem]">
@@ -52,10 +52,10 @@ export default function BlogPage({ head, data }) {
                   </div>
                   <div className="hidden lg:block">
                     <a
-                      href={'/'}
+                      href={"/"}
                       className=" text-xs lg:text-base flex items-center gap-x-2 textglink font-semibold"
                     >
-                      {' '}
+                      {" "}
                       <svg
                         width="18"
                         height="16"
@@ -73,12 +73,12 @@ export default function BlogPage({ head, data }) {
                           strokeWidth="0.6"
                         />
                       </svg>
-                      Receive free letters from Vazi{' '}
+                      Receive free letters from Vazi{" "}
                     </a>
                   </div>
                 </div>
                 <h2 className="text-xl lg:text-3xl text-[#027889] font-bold mb-5">
-                  The Nigerian Startup Ecosystem{' '}
+                  The Nigerian Startup Ecosystem{" "}
                 </h2>
                 <p className="max-w-[18rem] lg:max-w-[41rem] text-sm lg:text-base mb-8">
                   Seated by the west coastlines of Africa is a vibrant and
@@ -88,10 +88,10 @@ export default function BlogPage({ head, data }) {
                 </p>
 
                 <a
-                  href={'/'}
+                  href={"/"}
                   className="text-sm lg:text-base flex items-center gap-2 text-[#1193A9]"
                 >
-                  See full article{' '}
+                  See full article{" "}
                   <svg
                     width="12"
                     height="12"
@@ -159,6 +159,15 @@ export default function BlogPage({ head, data }) {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 max-w-[56.8rem] mx-auto  gap-y-5">
               <BlogPost posts={data} />
+            </div>
+            <div className="flex gap-x-2 max-w-[56.8rem] mx-auto  gap-y-5">
+              <button> Prev </button>
+              <button> 1 </button>
+              <button> 2 </button>
+              <button> 3 </button>
+              <button> ... </button>
+              <button> {totalCount / 10} </button>
+              <button> Next </button>
             </div>
           </div>
         </section>
