@@ -36,6 +36,6 @@ export default async function Services() {
     'https://admin.vazilegal.com/wp-json/rankmath/v1/getHead?url=https://admin.vazilegal.com/services'
   );
   const metaTags = JSON.parse(await response.text());
-
-  return <ServicesPage head={metaTags.head} data={await getData()} />;
+  const data = await getData()
+  return <ServicesPage head={metaTags.head} data={data.reverse()} />;
 }
