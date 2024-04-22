@@ -21,7 +21,7 @@ const GradientCarousel = ({ gcards, slidesToShow }) => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 3,
         },
       },
 
