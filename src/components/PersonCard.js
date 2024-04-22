@@ -1,10 +1,11 @@
 // PersonCard.jsx
 
-import React from 'react';
+import React from "react";
 
 const PersonCard = ({ person, href }) => {
   const imageSrc = person.featuredImage.node.sourceUrl;
   const name = person.title;
+  console.log(person.content);
 
   const content = person.content;
 
@@ -12,8 +13,16 @@ const PersonCard = ({ person, href }) => {
 
   const positionMatch = content.match(positionRegex);
 
+  const idRegex = /<span id=\"order-(\d+)\">/i;
+
+  const idMatch = content.match(idRegex);
+
+  // Extracted number
+  const orderNumber = idMatch ? parseInt(idMatch[1]) : null;
+
+  console.log(orderNumber);
   // Extracted texts
-  const role = positionMatch ? positionMatch[1].trim() : '';
+  const role = positionMatch ? positionMatch[1].trim() : "";
 
   const cardContent = (
     <div className="w-[20rem] lg:w-[16.5rem] mx-auto ">
