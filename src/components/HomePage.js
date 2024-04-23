@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import HeroSection from '../components/HeroSection';
+import HeroSection from "../components/HeroSection";
 
-import gcards from '@/components/GradientData';
+import gcards from "@/components/GradientData";
 
-import GradientCarousel from '@/components/GradientCarousel';
+import GradientCarousel from "@/components/GradientCarousel";
 
-import brandData from '@/components/data/brandData';
+import brandData from "@/components/data/brandData";
 
-import BrandImages from '@/components/BrandImages';
+import BrandImages from "@/components/BrandImages";
 
-import Marquee from 'react-fast-marquee';
-import Fade from 'react-reveal/Fade';
-import { Helmet } from 'mys-react-helmet';
-import parse from 'html-react-parser';
+import Marquee from "react-fast-marquee";
+import Fade from "react-reveal/Fade";
+import { Helmet } from "mys-react-helmet";
+import parse from "html-react-parser";
 
 export default function HomePage({ head }) {
   return (
@@ -182,11 +182,9 @@ export default function HomePage({ head }) {
                       &apos;The foremost tech law firm&apos;
                     </h2>
                     <p className="text-sm mt-4 text-white px-4">
-                      Vazi is the foremost tech law firm based in Nigeria and
-                      the United States. We offer a personalized approach for
-                      venture capitalists, private equity firms, and startups by
-                      advisory services best suited for our clients&apos;
-                      business interests.
+                      Vazi stands as a leading tech firm based in Nigeria and
+                      the United States. We provide tailored advisory services
+                      to startups, tech companies and people who invest in them.
                     </p>
                   </div>
                 </div>
