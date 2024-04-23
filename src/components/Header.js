@@ -75,12 +75,12 @@ const Header = () => {
           <div className="hidden lg:flex">
             <div className="py-2 px-3 hover:bg-opacity-0 transition duration-300  bg-white bg-opacity-10 rounded-[16.93px]  border-[#5ac8d98c] border-2  justify-center items-center gap-1 inline-flex">
               {" "}
-              <Link
-                href={"/library"}
+              <a
+                href={"https://library.vazilegal.com"}
                 className="text-center text-cyan-100 text-xs font-semibold  capitalize"
               >
                 Startup Library
-              </Link>
+              </a>
             </div>
           </div>
 
@@ -154,12 +154,12 @@ const Header = () => {
             >
               Blog
             </Link> */}
-            <Link
-              href={"/"}
+            <a
+              href={"https://library.vazilegal.com"}
               className="text-white text-[13px] hover:text-cyan-200 font-semibold"
             >
               Startup Library
-            </Link>
+            </a>
           </div>
         </div>
       </div>

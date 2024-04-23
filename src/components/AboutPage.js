@@ -1,14 +1,14 @@
-'use client';
-import HeroSection from '@/components/HeroSection';
+"use client";
+import HeroSection from "@/components/HeroSection";
 
-import AboutCard from '@/components/AboutCard';
-import Fade from 'react-reveal/Fade';
-import { Reveal } from 'react-reveal';
-import Marquee from 'react-fast-marquee';
-import BrandImages from '@/components/BrandImages';
-import featuredData from '@/components/data/featuredData';
-import { Helmet } from 'mys-react-helmet';
-import parse from 'html-react-parser';
+import AboutCard from "@/components/AboutCard";
+import Fade from "react-reveal/Fade";
+import { Reveal } from "react-reveal";
+import Marquee from "react-fast-marquee";
+import BrandImages from "@/components/BrandImages";
+import featuredData from "@/components/data/featuredData";
+import { Helmet } from "mys-react-helmet";
+import parse from "html-react-parser";
 
 export default function AboutPage({ head }) {
   return (
@@ -26,7 +26,7 @@ export default function AboutPage({ head }) {
         <section className="pt-24 pb-8 px-5">
           <div className="container">
             <Reveal>
-              {' '}
+              {" "}
               <div className=" justify-center grid grid-cols-1  lg:grid-cols-3  gap-4 border w-fit mx-auto p-4 rounded-3xl bg-gradient-to-b from-[#063E43] to-[#011E21]">
                 <AboutCard
                   iconSrc="/icons/flag.svg"
@@ -168,14 +168,14 @@ export default function AboutPage({ head }) {
               <div className="p-6 sm:p-9 rounded-2xl bg-white">
                 <div className="md:w-[35rem] xl:w-[51rem]">
                   <h2 className="text-2xl md:text-3xl lg:text-5xl lg:leading-[3.6rem]  font-extrabold sm:leading-[3.5rem] text-[#1B383B]">
-                    We are the{' '}
+                    We are the{" "}
                     <span className="text-[#4E7A81]">
-                      leading tech law firm{' '}
+                      leading tech law firm{" "}
                     </span>
                     representing investors, start-up and technology driven
                     companies <span className="text-[#FFB100]">globally</span>.
                   </h2>
-                  <p className="text-base mt-9 mb-1 text-[#1B383B] font-medium ">
+                  {/* <p className="text-base mt-9 mb-1 text-[#1B383B] font-medium ">
                     <span className="font-semibold">
                       <span className="text-[#56868E]">
                         With over 30 years of combined experience.
@@ -187,7 +187,7 @@ export default function AboutPage({ head }) {
                       Vazi remains top tier choice tech focused law practice
                       operating in the most vibrant markets.
                     </span>
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>
