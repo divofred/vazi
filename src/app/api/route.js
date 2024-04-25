@@ -1,31 +1,31 @@
-import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 export async function POST(request) {
   const data = await request.json();
   let transporter = nodemailer.createTransport({
-    host: 'smtp.hostinger.com',
+    host: "mail.vazilegal.com",
     port: 465,
     secure: true, // use TLS
     auth: {
-      user: 'test@cargoproshipments.com',
-      pass: 'Sasuke465!'
-    }
+      user: "mailer@vazilegal.com",
+      pass: "enEk[3jpLZ_$",
+    },
   });
 
   async function main() {
     await transporter.sendMail(
       {
-        from: 'test@cargoproshipments.com', // sender address
-        to: 'divofred2.0@gmail.com', // list of receivers
-        subject: 'This is a mail ✔', // Subject line
+        from: "mailer@vazilegal.com", // sender address
+        to: "hello@vazilegal.com", // list of receivers
+        subject: "Contact Us Mail", // Subject line
         text: `${JSON.stringify(data)}`, // plain text body
-        html: `${JSON.stringify(data)}`
+        html: `${JSON.stringify(data)}`,
       },
       function (error, info) {
         if (error) {
           console.log(error);
         } else {
-          console.log('Email sent: ' + info.response);
+          console.log("Email sent: " + info.response);
         }
       }
     );
@@ -34,6 +34,6 @@ export async function POST(request) {
   main().catch(console.error);
 
   return NextResponse.json({
-    message: 'Email sent'
+    message: "Email sent",
   });
 }
