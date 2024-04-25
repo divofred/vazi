@@ -1,14 +1,14 @@
-'use client';
-import Link from 'next/link';
-import Header from '@/components/Header';
-import parse from 'html-react-parser';
+"use client";
+import Link from "next/link";
+import Header from "@/components/Header";
+import parse from "html-react-parser";
 
-import Carousel from '@/components/PeopleCarousel';
+import Carousel from "@/components/PeopleCarousel";
 
-import { usePathname } from 'next/navigation';
+import { usePathname } from "next/navigation";
 
-import { getLegalData } from '../page';
-import { Helmet } from 'mys-react-helmet';
+import { getLegalData } from "../page";
+import { Helmet } from "mys-react-helmet";
 
 export default async function LegalChild() {
   const name = usePathname();
@@ -16,14 +16,14 @@ export default async function LegalChild() {
   const data = await getLegalData();
 
   const service = data.find(
-    service => service.slug === name.replace('/legal-team/', '')
+    (service) => service.slug === name.replace("/legal-team/", "")
   );
   const positionRegex = /<p id=\"position\">(.*?)<\/p>/i;
 
   const positionMatch = service?.content.match(positionRegex);
 
   // Extracted texts
-  const role = positionMatch ? positionMatch[1].trim() : '';
+  const role = positionMatch ? positionMatch[1].trim() : "";
 
   const biographyRegex = /<p id=\"biography-paragraph\">(.*?)<\/p>/i;
   const educationRegex = /<ul id=\"education-list\">(.*?)<\/ul>/s;
@@ -33,25 +33,25 @@ export default async function LegalChild() {
   const educationMatch = service?.content.match(educationRegex);
 
   // Extracted texts
-  const biography = biographyMatch ? biographyMatch[1].trim() : '';
+  const biography = biographyMatch ? biographyMatch[1].trim() : "";
 
-  const education = educationMatch ? educationMatch[1].trim() : '';
+  const education = educationMatch ? educationMatch[1].trim() : "";
 
   const peopleData = [];
 
-  data.reverse().map(service => {
+  data.reverse().map((service) => {
     peopleData.push({
       id: service.id,
       imageSrc: service.featuredImage.node.sourceUrl,
       name: service.title,
       role: service.content.match(positionRegex)[1].trim(),
-      href: '/legal-team/' + service.slug
+      href: "/legal-team/" + service.slug,
     });
   });
   const response = await fetch(
     `https://admin.vazilegal.com/wp-json/rankmath/v1/getHead?url=https://admin.vazilegal.com/legal-team/${name.replace(
-      '/legal-team/',
-      ''
+      "/legal-team/",
+      ""
     )}`
   );
   const metaTags = JSON.parse(await response.text());
@@ -68,7 +68,7 @@ export default async function LegalChild() {
             <div className="">
               <div className="max-w-[54.8rem] h-[] border mx-auto rounded-xl px-5 lg:px-12 gradient-card3 pt-8">
                 <a
-                  href={'/legal-team'}
+                  href={"/legal-team"}
                   className="text-xs inline-flex gap-1 text-[#6F898C] items-center "
                 >
                   <svg
@@ -96,7 +96,7 @@ export default async function LegalChild() {
 
                     <div className="mt-6">
                       <Link
-                        href={'/'}
+                        href={"/contact-us"}
                         className=" px-5 lg:px-6 py-2 lg:py-2.5 bg-gradient-to-r from-[#FFDE98] to-[#FFB100] hover:from-[#0037402d] hover:to-[#5bcedf5b] text-xs lg:text-sm font-medium text-[#A87807] rounded-sm"
                       >
                         Contact

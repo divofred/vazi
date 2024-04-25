@@ -1,52 +1,52 @@
-'use client';
-import React from 'react';
-import Link from 'next/link';
-import Header from '@/components/Header';
+"use client";
+import React from "react";
+import Link from "next/link";
+import Header from "@/components/Header";
 // import { cards } from '@/components/CardData.js';
-import CardCarousel from '@/components/CardCarousel';
-import { usePathname } from 'next/navigation';
-import { Helmet } from 'mys-react-helmet';
-import parse from 'html-react-parser';
+import CardCarousel from "@/components/CardCarousel";
+import { usePathname } from "next/navigation";
+import { Helmet } from "mys-react-helmet";
+import parse from "html-react-parser";
 
 export default function ServiceInnerPage({ head, data }) {
   const name = usePathname();
 
   const service = data.find(
-    service => service.slug === name.replace('/services/', '')
+    (service) => service.slug === name.replace("/services/", "")
   );
 
   const serviceTitleMatch = service.content.match(
     /<p id="service-card">(.*?)<\/p>/
   );
-  const serviceTitle = serviceTitleMatch ? serviceTitleMatch[1] : '';
+  const serviceTitle = serviceTitleMatch ? serviceTitleMatch[1] : "";
 
   const heading1Match = service.content.match(/<h3 id="heading1">(.*?)<\/h3>/);
-  const heading1 = heading1Match ? heading1Match[1] : '';
+  const heading1 = heading1Match ? heading1Match[1] : "";
 
   const list1Match = service.content.match(/<ul id="list1">(.*?)<\/ul>/s);
-  const list1 = list1Match ? list1Match[1] : '';
+  const list1 = list1Match ? list1Match[1] : "";
 
   const heading2Match = service.content.match(/<h3 id="heading2">(.*?)<\/h3>/);
-  const heading2 = heading2Match ? heading2Match[1] : '';
+  const heading2 = heading2Match ? heading2Match[1] : "";
 
   const list2Match = service.content.match(/<ul id="list2">(.*?)<\/ul>/s);
-  const list2 = list2Match ? list2Match[1] : '';
+  const list2 = list2Match ? list2Match[1] : "";
 
   const heading3Match = service.content.match(/<h3 id="heading3">(.*?)<\/h3>/);
-  const heading3 = heading3Match ? heading3Match[1] : '';
+  const heading3 = heading3Match ? heading3Match[1] : "";
 
   const list3Match = service.content.match(/<ul id="list3">(.*?)<\/ul>/s);
-  const list3 = list3Match ? list3Match[1] : '';
+  const list3 = list3Match ? list3Match[1] : "";
 
   const sideImgRegex = /<img.*?id=\"sideimg\".*?src=\"(.*?)\".*?>/i;
   const sideImgMatch = service.content.match(sideImgRegex);
-  const sideImgSrc = sideImgMatch ? sideImgMatch[1] : '';
+  const sideImgSrc = sideImgMatch ? sideImgMatch[1] : "";
 
-  const cards = data.map(service => {
+  const cards = data.map((service) => {
     return {
       title: service.title,
       imageUrl: service.featuredImage.node.sourceUrl,
-      link: `${service.slug}`
+      link: `${service.slug}`,
     };
   });
 
@@ -63,7 +63,7 @@ export default function ServiceInnerPage({ head, data }) {
             <div className="">
               <div className="max-w-[53.8rem] border mx-auto rounded-xl px-6 md:px-12 gradient-card2 py-8">
                 <a
-                  href={'/services'}
+                  href={"/services"}
                   className="text-xs inline-flex gap-1 text-[#6F898C] items-center "
                 >
                   <svg
@@ -91,7 +91,7 @@ export default function ServiceInnerPage({ head, data }) {
                   </div>
                   <div className="hidden lg:block self-center">
                     <img
-                      src={sideImgSrc?.replace('vazilegal', 'admin.vazilegal')}
+                      src={sideImgSrc?.replace("vazilegal", "admin.vazilegal")}
                       className="w-[14rem]"
                     />
                   </div>
@@ -135,7 +135,7 @@ export default function ServiceInnerPage({ head, data }) {
                   />
                   <div className="mt-5">
                     <a
-                      href={'/'}
+                      href={"/contact-us"}
                       className=" text-left border-[#e9ca871f] bg-gradient-to-r from-[#FDDE99] to-[#FEB101] hover:from-[#0037402d] hover:to-[#5bcedf5b] px-5 py-2.5 rounded-md text-xs text-white font-semibold"
                     >
                       Talk to our Startup Advisory Team
