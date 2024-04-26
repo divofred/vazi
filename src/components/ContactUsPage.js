@@ -35,23 +35,18 @@ export default function ContactUsPage({ head }) {
     });
 
     const data = await res.json();
-
-    console.log(data);
   };
 
   const handleFullNameChange = e => {
     setFullName(e.target.value);
-    console.log(e.target.value);
   };
 
   const handleEmailChange = e => {
     setEmail(e.target.value);
-    console.log(e.target.value);
   };
 
   const handleHowDidYouHearAboutUsChange = e => {
     setHowDidYouHearAboutUs(e.target.value);
-    console.log(e.target.value);
   };
 
   const handleCheckboxChange = event => {
@@ -63,13 +58,11 @@ export default function ContactUsPage({ head }) {
       // If the value is not in the array, add it
       setSelectedValues([...selectedValues, name]);
     }
-    console.log(selectedValues);
   };
 
   const handleYesOrNOChange = event => {
     const { name } = event.target;
     setSelectedValue(name);
-    console.log(event.target.name);
   };
 
   return (
