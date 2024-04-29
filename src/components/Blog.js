@@ -6,7 +6,7 @@ import ReactHtmlParser from 'react-html-parser';
 export default function Blog({ post }) {
   const originalDate = new Date(post?.date);
   const options = { year: 'numeric', month: 'short', day: 'numeric' };
-
+  console.log(post);
   const formattedDate = originalDate.toLocaleDateString('en-US', options);
   const htmlContent = post?.content;
 
@@ -112,7 +112,7 @@ export default function Blog({ post }) {
                   <div className="flex gap-x-4 mb-2 text13 text-[#9C9C9C]">
                     <p>2 Aug, 2023</p>
                     <p>03:08 pm</p>
-                    <p>No comments</p>
+                    <p>{post?.commentCount || 'no'} comments</p>
                   </div>
                   <div className=" mx-auto px-8 py-7  bg-[#F1F1F1] rounded-xl max-w-full">
                     <div className="flex justify-between"></div>

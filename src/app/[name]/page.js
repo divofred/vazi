@@ -1,14 +1,14 @@
 'use server';
 import InnerBlogPage from '@/components/BlogInnerPage';
-import { headers } from 'next/headers';
+// import { headers } from 'next/headers';
 
 export default async function InnerBlog() {
-  const headersList = headers();
+  // const headersList = headers();
 
-  let fullUrl = headersList.get('referer') || headersList.get('Referer') || '';
+  // let fullUrl = headersList.get('referer') || headersList.get('Referer') || '';
 
-  const url = new URL(fullUrl);
-  const pathname = url.pathname;
+  // const url = new URL(fullUrl);
+  // const pathname = url.pathname;
 
   // async function getData() {
   //   const res = await fetch('https://admin.vazilegal.com/graphql', {
@@ -47,10 +47,10 @@ export default async function InnerBlog() {
   // }
   // const data = await getData();
 
-  const response = await fetch(
-    `https://admin.vazilegal.com/wp-json/rankmath/v1/getHead?url=https://admin.vazilegal.com${pathname}`
-  );
-  const metaTags = JSON.parse(await response.text());
+  // const response = await fetch(
+  //   `https://admin.vazilegal.com/wp-json/rankmath/v1/getHead?url=https://admin.vazilegal.com${pathname}`
+  // );
+  // const metaTags = JSON.parse(await response.text());
 
-  return <InnerBlogPage head={metaTags.head} />;
+  return <InnerBlogPage />;
 }
