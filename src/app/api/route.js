@@ -3,20 +3,20 @@ import nodemailer from "nodemailer";
 export async function POST(request) {
   const data = await request.json();
   let transporter = nodemailer.createTransport({
-    host: "smtp.titan.email",
+    host: "smtp.gmail.com.",
     port: 465,
     secure: true, // use TLS
     auth: {
-      user: "mailer@apextradefx.live",
-      pass: "Admin12345!",
+      user: "vazimailermailer@gmail.com",
+      pass: "jcwmeygdxzojmkse",
     },
   });
 
   async function main() {
     await transporter.sendMail(
       {
-        from: "mailer@apextradefx.live", // sender address
-        to: "feranmi465@gmail.com", // list of receivers
+        from: "vazimailermailer@gmail.com", // sender address
+        to: "hello@vazilegal.com", // list of receivers
         subject: "Contact-Us", // Subject line
         text: `${JSON.stringify(data)}`, // plain text body
         html: `${JSON.stringify(data)}`,
