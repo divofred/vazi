@@ -16,8 +16,8 @@ export async function POST(request) {
     await transporter.sendMail(
       {
         from: "mailer@vazilegal.com", // sender address
-        to: "hello@vazilegal.com", // list of receivers
-        subject: "Contact Us Mail", // Subject line
+        to: "feranmi465@gmail.com", // list of receivers
+        subject: "Contact-Us", // Subject line
         text: `${JSON.stringify(data)}`, // plain text body
         html: `${JSON.stringify(data)}`,
       },
