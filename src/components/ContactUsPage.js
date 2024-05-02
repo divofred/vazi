@@ -7,8 +7,10 @@ import { checkboxesData2 } from '@/components/data/checkboxesData2';
 
 import { Helmet } from 'mys-react-helmet';
 import parse from 'html-react-parser';
+import Swal from 'sweetalert2';
 
 import { useState } from 'react';
+import { redirect } from 'next/navigation';
 
 export default function ContactUsPage({ head }) {
   const [fullName, setFullName] = useState('');
@@ -19,7 +21,7 @@ export default function ContactUsPage({ head }) {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    const res = await fetch('/api', {
+    fetch('/api', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -27,14 +29,19 @@ export default function ContactUsPage({ head }) {
       body: JSON.stringify({
         fullName,
         email,
-
-        selectedValues,
-        selectedValue,
+        services: selectedValues,
+        firstAttorney: selectedValue,
         howDidYouHearAboutUs
       })
     });
-
-    const data = await res.json();
+    Swal.fire({
+      title: 'Success!',
+      text: 'Your message has been sent successfully',
+      icon: 'success',
+      confirmButtonText: 'Ok'
+    }).then(() => {
+      window.location = '/';
+    });
   };
 
   const handleFullNameChange = e => {
