@@ -18,7 +18,13 @@ import parse from "html-react-parser";
 export default function HomePage({ head }) {
   return (
     <>
-      <Helmet>{parse(head)}</Helmet>
+      <Helmet>
+        {parse(head)}
+        <meta
+          name="google-site-verification"
+          content="iq72UFVtOXjk4hcm3i938IVVqLMDOdrE_kZ2OM1EPmU"
+        />
+      </Helmet>
       <main className="">
         <div>
           <HeroSection
