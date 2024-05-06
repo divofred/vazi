@@ -2,13 +2,83 @@
 import Header from '@/components/Header';
 import Link from 'next/link';
 import ReactHtmlParser from 'react-html-parser';
+import { useState } from 'react';
+import Swal from 'sweetalert2';
 
 export default function Blog({ post }) {
   const originalDate = new Date(post?.date);
+  const [comment, setComment] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const options = { year: 'numeric', month: 'short', day: 'numeric' };
-  console.log(post);
+
   const formattedDate = originalDate.toLocaleDateString('en-US', options);
   const htmlContent = post?.content;
+
+  const handleInput = e => {
+    setComment(e.target.value);
+  };
+
+  const handleName = e => {
+    setName(e.target.value);
+  };
+
+  const handleEmail = e => {
+    setEmail(e.target.value);
+  };
+
+  const handleComment = async e => {
+    e.preventDefault();
+    if (!comment || !name || !email) return;
+    fetch('https://admin.vazilegal.com/graphql', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      cache: 'no-store',
+      body: JSON.stringify({
+        query: `
+        mutation MyMutation {
+  createComment(
+    input: {content: "${comment}", author: "${name}", status: APPROVE, date: "2024-05-03", commentOn: 2687}
+  ) {
+    comment {
+      id
+      content
+      date
+      commentedOn {
+        node {
+          databaseId
+        }
+      }
+    }
+    clientMutationId
+  }
+}`
+      })
+    });
+
+    fetch('/api', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        comment,
+        title: post.title
+      })
+    });
+    Swal.fire({
+      title: 'Success!',
+      text: 'Your comment has been sent successfully, Please wait for approval',
+      icon: 'success',
+      confirmButtonText: 'Ok'
+    }).then(() => {
+      setComment('');
+      setName('');
+      setEmail('');
+    });
+  };
 
   return (
     <main>
@@ -110,8 +180,8 @@ export default function Blog({ post }) {
                 </div>
                 <div className="mt-10">
                   <div className="flex gap-x-4 mb-2 text13 text-[#9C9C9C]">
-                    <p>2 Aug, 2023</p>
-                    <p>03:08 pm</p>
+                    <p>{formattedDate}</p>
+                    {/* <p>03:08 pm</p> */}
                     <p>{post?.commentCount || 'no'} comments</p>
                   </div>
                   <div className=" mx-auto px-8 py-7  bg-[#F1F1F1] rounded-xl max-w-full">
@@ -124,6 +194,8 @@ export default function Blog({ post }) {
                         <textarea
                           className="py-2.5 px-5 w-full h-[12rem] resize-none  rounded-lg text-[0.8rem] mb-3"
                           placeholder="Your comment"
+                          onChange={handleInput}
+                          value={comment}
                           required
                         ></textarea>
                       </div>
@@ -133,7 +205,8 @@ export default function Blog({ post }) {
                           required
                           placeholder="Name"
                           className="w-full text-sm px-5 rounded-lg py-2.5 mb-3 text-[0.8rem]"
-                          name=""
+                          onChange={handleName}
+                          value={name}
                         />
                       </div>
                       <div>
@@ -142,29 +215,19 @@ export default function Blog({ post }) {
                           className="w-full text-sm px-5 rounded-lg py-2.5 mb-1 text-[0.8rem]"
                           required
                           placeholder="Email address"
-                          name=""
+                          onChange={handleEmail}
+                          value={email}
                         />
                       </div>
+                      <button onClick={handleComment} type="submit">
+                        Submit
+                      </button>
                     </form>
                     <small className="px-5 text-xs text-[#BBBBBB] ">
                       Your email address{' '}
                       <span className="text-semibold">will not be</span>{' '}
                       published
                     </small>
-                    <div className="flex gap-x-1 px-5 mt-2">
-                      <input
-                        className="text-[#1193A9]"
-                        type="checkbox"
-                        id="check"
-                        name="blogcheckprompt"
-                        value="yes"
-                      />
-                      <label htmlFor="check" className="text-xs text-[#1193A9]">
-                        {' '}
-                        Save my name and email in this browser for the next time
-                        I comment.
-                      </label>
-                    </div>
                   </div>
                 </div>
               </div>

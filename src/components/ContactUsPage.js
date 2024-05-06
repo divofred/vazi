@@ -10,7 +10,6 @@ import parse from 'html-react-parser';
 import Swal from 'sweetalert2';
 
 import { useState } from 'react';
-import { redirect } from 'next/navigation';
 
 export default function ContactUsPage({ head }) {
   const [fullName, setFullName] = useState('');

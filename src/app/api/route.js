@@ -93,3 +93,88 @@ export async function POST(request) {
     message: 'Email sent'
   });
 }
+
+export async function PUT(request) {
+  const data = await request.json();
+  let transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com.',
+    port: 465,
+    secure: true, // use TLS
+    auth: {
+      user: 'vazimailermailer@gmail.com',
+      pass: 'jcwmeygdxzojmkse'
+    }
+  });
+  const html = (name, email, comment, title) => {
+    return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEW COMMENT</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      color: #333;
+    }
+    strong {
+      color: #555;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 5px;
+    }
+  </style>
+</head> 
+<body>
+  <div class="container">
+    <h2>NEW COMMENT!!</h2>
+    <p><strong>Name:</strong> ${name}</p>
+    <p><strong>Email:</strong> ${email}</p>
+    <p><strong>Comment:</strong> ${comment}</p>
+    <p><strong>Post Title:</strong> ${title}</p>
+    
+  </div>
+  </body>
+  </html>`;
+  };
+  async function main() {
+    await transporter.sendMail(
+      {
+        from: 'vazimailermailer@gmail.com', // sender address
+        to: 'hello@vazilegal.com', // list of receivers
+        subject: 'NEW COMMENT!!', // Subject line
+        text: `${JSON.stringify(data)}`, // plain text body
+        html: html(data.name, data.email, data.comment, data.title)
+      },
+      function (error, info) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+      }
+    );
+  }
+
+  main().catch(console.error);
+
+  return NextResponse.json({
+    message: 'Email sent'
+  });
+}
