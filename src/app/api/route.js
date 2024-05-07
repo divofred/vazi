@@ -1,15 +1,15 @@
-import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 export async function POST(request) {
   const data = await request.json();
   let transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com.',
+    host: "smtp.gmail.com.",
     port: 465,
     secure: true, // use TLS
     auth: {
-      user: 'vazimailermailer@gmail.com',
-      pass: 'jcwmeygdxzojmkse'
-    }
+      user: "vazimailermailer@gmail.com",
+      pass: "jcwmeygdxzojmkse",
+    },
   });
   const html = (name, email, services, howDidYouHearAboutUs, firstAttorney) => {
     return `<!DOCTYPE html>
@@ -54,7 +54,7 @@ export async function POST(request) {
     <p><strong>Email:</strong> ${email}</p>
     <p><strong>Services:</strong></p>
     <ul>
-      ${services.map(service => `<li>${service}</li>`).join('')}
+      ${services.map((service) => `<li>${service}</li>`).join("")}
     </ul>
     <p><strong>Are we the first attorney:</strong> ${firstAttorney}</p>
     <p><strong>How Did You Hear About Us:</strong> ${howDidYouHearAboutUs}</p>
@@ -65,9 +65,9 @@ export async function POST(request) {
   async function main() {
     await transporter.sendMail(
       {
-        from: 'vazimailermailer@gmail.com', // sender address
-        to: 'hello@vazilegal.com', // list of receivers
-        subject: 'Contact-Us', // Subject line
+        from: "vazimailermailer@gmail.com", // sender address
+        to: "hello@vazilegal.co", // list of receivers
+        subject: "Contact-Us", // Subject line
         text: `${JSON.stringify(data)}`, // plain text body
         html: html(
           data.fullName,
@@ -75,13 +75,13 @@ export async function POST(request) {
           data.services,
           data.howDidYouHearAboutUs,
           data.firstAttorney
-        )
+        ),
       },
       function (error, info) {
         if (error) {
           console.log(error);
         } else {
-          console.log('Email sent: ' + info.response);
+          console.log("Email sent: " + info.response);
         }
       }
     );
@@ -90,20 +90,20 @@ export async function POST(request) {
   main().catch(console.error);
 
   return NextResponse.json({
-    message: 'Email sent'
+    message: "Email sent",
   });
 }
 
 export async function PUT(request) {
   const data = await request.json();
   let transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com.',
+    host: "smtp.gmail.com.",
     port: 465,
     secure: true, // use TLS
     auth: {
-      user: 'vazimailermailer@gmail.com',
-      pass: 'jcwmeygdxzojmkse'
-    }
+      user: "vazimailermailer@gmail.com",
+      pass: "jcwmeygdxzojmkse",
+    },
   });
   const html = (name, email, comment, title) => {
     return `<!DOCTYPE html>
@@ -156,17 +156,17 @@ export async function PUT(request) {
   async function main() {
     await transporter.sendMail(
       {
-        from: 'vazimailermailer@gmail.com', // sender address
-        to: 'hello@vazilegal.com', // list of receivers
-        subject: 'NEW COMMENT!!', // Subject line
+        from: "vazimailermailer@gmail.com", // sender address
+        to: "hello@vazilegal.com", // list of receivers
+        subject: "NEW COMMENT!!", // Subject line
         text: `${JSON.stringify(data)}`, // plain text body
-        html: html(data.name, data.email, data.comment, data.title)
+        html: html(data.name, data.email, data.comment, data.title),
       },
       function (error, info) {
         if (error) {
           console.log(error);
         } else {
-          console.log('Email sent: ' + info.response);
+          console.log("Email sent: " + info.response);
         }
       }
     );
@@ -175,6 +175,6 @@ export async function PUT(request) {
   main().catch(console.error);
 
   return NextResponse.json({
-    message: 'Email sent'
+    message: "Email sent",
   });
 }
