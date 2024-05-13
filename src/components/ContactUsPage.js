@@ -104,7 +104,7 @@ export default function ContactUsPage({ head }) {
               </div>
 
               <div className=" w-full px-6 pt-6 pb-10 rounded-xl mt-5 md:mt-0 bg-[#E8F3F4]">
-                <form onSubmit={handleSubmit}>
+                {/* <form onSubmit={handleSubmit}>
                   <div>
                     <label className="text-xs px-4">Full Name</label>
                     <input
@@ -199,7 +199,20 @@ export default function ContactUsPage({ head }) {
                       Submit
                     </button>
                   </div>
-                </form>
+                </form> */}
+                <iframe
+                  title="Airtable Embed"
+                  className="airtable-embed"
+                  src="https://airtable.com/embed/appGWQafX9c1hZULp/shr1g8Hp918O9iD9F?backgroundColor=yellow"
+                  frameBorder="0"
+                  width="100%"
+                  height="533"
+                  style={{
+                    background: "transparent",
+                    border: "1px solid #ccc",
+                  }}
+                  sandbox="allow-same-origin allow-scripts allow-popups"
+                ></iframe>
               </div>
             </div>
           </div>
