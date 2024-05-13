@@ -206,7 +206,7 @@ export default function ContactUsPage({ head }) {
                   src="https://airtable.com/embed/appGWQafX9c1hZULp/shr1g8Hp918O9iD9F?backgroundColor=yellow"
                   frameBorder="0"
                   width="100%"
-                  height="533"
+                  height="1500"
                   style={{
                     background: "transparent",
                     border: "1px solid #ccc",
