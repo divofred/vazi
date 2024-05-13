@@ -1,72 +1,72 @@
-'use client';
+"use client";
 
-import Header from '@/components/Header';
-import CheckboxComponent from '@/components/CheckboxComponent';
-import { checkboxesData } from '@/components/data/checkboxesData';
-import { checkboxesData2 } from '@/components/data/checkboxesData2';
+import Header from "@/components/Header";
+import CheckboxComponent from "@/components/CheckboxComponent";
+import { checkboxesData } from "@/components/data/checkboxesData";
+import { checkboxesData2 } from "@/components/data/checkboxesData2";
 
-import { Helmet } from 'mys-react-helmet';
-import parse from 'html-react-parser';
-import Swal from 'sweetalert2';
+import { Helmet } from "mys-react-helmet";
+import parse from "html-react-parser";
+import Swal from "sweetalert2";
 
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function ContactUsPage({ head }) {
-  const [fullName, setFullName] = useState('');
-  const [email, setEmail] = useState('');
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
   const [selectedValues, setSelectedValues] = useState([]);
-  const [selectedValue, setSelectedValue] = useState('');
-  const [howDidYouHearAboutUs, setHowDidYouHearAboutUs] = useState('');
+  const [selectedValue, setSelectedValue] = useState("");
+  const [howDidYouHearAboutUs, setHowDidYouHearAboutUs] = useState("");
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    fetch('/api', {
-      method: 'POST',
+    fetch("/api", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         fullName,
         email,
         services: selectedValues,
         firstAttorney: selectedValue,
-        howDidYouHearAboutUs
-      })
+        howDidYouHearAboutUs,
+      }),
     });
     Swal.fire({
-      title: 'Success!',
-      text: 'Your message has been sent successfully',
-      icon: 'success',
-      confirmButtonText: 'Ok'
+      title: "Success!",
+      text: "Your message has been sent successfully",
+      icon: "success",
+      confirmButtonText: "Ok",
     }).then(() => {
-      window.location = '/';
+      window.location = "/";
     });
   };
 
-  const handleFullNameChange = e => {
+  const handleFullNameChange = (e) => {
     setFullName(e.target.value);
   };
 
-  const handleEmailChange = e => {
+  const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
 
-  const handleHowDidYouHearAboutUsChange = e => {
+  const handleHowDidYouHearAboutUsChange = (e) => {
     setHowDidYouHearAboutUs(e.target.value);
   };
 
-  const handleCheckboxChange = event => {
+  const handleCheckboxChange = (event) => {
     const { name } = event.target;
     if (selectedValues.includes(name)) {
       // If the value is already in the array, remove it
-      setSelectedValues(selectedValues.filter(value => value !== name));
+      setSelectedValues(selectedValues.filter((value) => value !== name));
     } else {
       // If the value is not in the array, add it
       setSelectedValues([...selectedValues, name]);
     }
   };
 
-  const handleYesOrNOChange = event => {
+  const handleYesOrNOChange = (event) => {
     const { name } = event.target;
     setSelectedValue(name);
   };
@@ -151,7 +151,7 @@ export default function ContactUsPage({ head }) {
                           {label}
                         </label>
                       </div>
-                    ))}{' '}
+                    ))}{" "}
                   </div>
 
                   <div className="mt-3">
@@ -190,7 +190,7 @@ export default function ContactUsPage({ head }) {
                             {label}
                           </label>
                         </div>
-                      ))}{' '}
+                      ))}{" "}
                     </div>
                   </div>
 
