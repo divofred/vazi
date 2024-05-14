@@ -78,7 +78,7 @@ export default function Home() {
                 </p>
 
                 <p className="mt-5">
-                  Shortlisted candidates will be contacted within two weeks.
+                  Shortlisted candidates will be contacted within two weeks.
                 </p>
 
                 <div className="mt-4 py-2.5 px-5 hover:bg-[#357e89] transition duration-300  bg-[#3bb4c7]  rounded  justify-center items-center gap-1 inline-flex">
