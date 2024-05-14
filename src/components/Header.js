@@ -53,6 +53,13 @@ const Header = () => {
             >
               People
             </Link>
+            <img src="/ellipse.svg" className="w-[3px]  inline-flex" />
+            <Link
+              href={"/career"}
+              className={pathname.includes("/career") ? "active" : "" + "alink"}
+            >
+              Career
+            </Link>
             {/*<img src="/ellipse.svg" className="w-[3px]  inline-flex" />
             <Link
               href={'/contact-us'}
@@ -139,6 +146,13 @@ const Header = () => {
               className="text-white text-[13px] hover:text-cyan-200 font-semibold"
             >
               People
+            </Link>
+
+            <Link
+              href={"/career"}
+              className="text-white text-[13px] hover:text-cyan-200 font-semibold"
+            >
+              career
             </Link>
 
             {/*   <Link

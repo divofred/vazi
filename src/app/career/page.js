@@ -37,7 +37,7 @@ export default function Home() {
               />
               <div className="max-w-md pt-10 text-[15px] ">
                 <p className="">
-                  We are excited to announce that the 2023 Cohort of our annual
+                  We are excited to announce that the 2024 Cohort of our annual
                   internship is now open.
                 </p>
 
@@ -53,19 +53,19 @@ export default function Home() {
 
                 <ul className="my-5">
                   <li>
-                    <strong> Application Start Date:</strong> May 15, 2023{" "}
+                    <strong> Application Start Date:</strong> May 15, 2024{" "}
                   </li>
                   <li>
-                    <strong>Application End Date:</strong> May 19, 2023{" "}
+                    <strong>Application End Date:</strong> May 19, 2024{" "}
                   </li>
                   <li>
                     <strong>Duration of Internship: </strong>8 weeks (June 5,
-                    2023 to July 28, 2023)
+                    2024 to July 28, 2024)
                   </li>
                 </ul>
 
                 <h2 className="font-semibold">Who can Apply?</h2>
-                <ul className="my-5">
+                <ul className="my-5 list-disc ml-5">
                   <li>Final year law students</li>
                   <li>Law school students</li>
                   <li>Recent graduates of law</li>
