@@ -31,7 +31,7 @@ export default function Home() {
         <section className=" pt-[6em] mb-28 align-middle">
           <div className="container px-6">
             <div className="flex flex-col lg:flex-row gap-x-10 w-fit mx-auto">
-              <img className="lg:max-w-xl" src="internship-2024.jpg" />
+              <img className="lg:max-w-xl" src="internship-2024.jpg" alt="" />
               <div className="max-w-2xl pt-10 text-[14px]  ">
                 <p className="">🚀 2024 Summer Internship Program</p>
 
@@ -78,7 +78,7 @@ export default function Home() {
                 </p>
 
                 <p className="mt-5">
-                  Shortlisted candidates will be contacted within two weeks.
+                  Shortlisted candidates will be contacted within two weeks.
                 </p>
 
                 <div className="mt-4 py-2.5 px-5 hover:bg-[#357e89] transition duration-300  bg-[#3bb4c7]  rounded  justify-center items-center gap-1 inline-flex">
