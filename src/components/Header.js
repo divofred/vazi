@@ -58,7 +58,7 @@ const Header = () => {
               href={"/career"}
               className={pathname.includes("/career") ? "active" : "" + "alink"}
             >
-              Career
+              Careers
             </Link>
             {/*<img src="/ellipse.svg" className="w-[3px]  inline-flex" />
             <Link
@@ -152,7 +152,7 @@ const Header = () => {
               href={"/career"}
               className="text-white text-[13px] hover:text-cyan-200 font-semibold"
             >
-              career
+              Careers
             </Link>
 
             {/*   <Link
