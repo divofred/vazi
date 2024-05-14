@@ -46,7 +46,7 @@ export default function Home() {
                   thrive in the dynamic tech law space.
                 </p>
 
-                <p className="mt-5">Here's what you get:</p>
+                <p className="mt-5">Here&apos;s what you get:</p>
 
                 <ul className="my-5">
                   <li>
