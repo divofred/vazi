@@ -11,11 +11,11 @@ import { useSearchParams } from 'next/navigation';
 export default function BlogPage({ head, totalCount }) {
   const searchParams = useSearchParams();
 
-  const pageNumber = searchParams.get('page') ?? null;
+  const cursor = searchParams.get('page') ?? null;
 
   const [d, setD] = useState([]);
   useEffect(() => {
-    async function getData() {
+    async function getAfterData(cursor) {
       const res = await fetch('https://admin.vazilegal.com/graphql', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -23,41 +23,123 @@ export default function BlogPage({ head, totalCount }) {
         body: JSON.stringify({
           query: `
          query HomePageQuery {
-  posts(after: "${pageNumber}", first: 10) 
-  {
-    edges {
-      cursor
-      node {
-        id
-        slug
-        title
-        content
-        commentCount
-        date
-        comments {
-          nodes {
-            content
-          }
-        }
-        featuredImage {
-          node {
-            sourceUrl
-          }
-        }
-      }
-    }
-  }
-}
+            posts(after: "${cursor}", first: 10) 
+              {
+                edges {
+                  cursor
+                  node {
+                    id
+                    slug
+                    title
+                    content
+                    commentCount
+                    date
+                    comments {
+                      nodes {
+                        content
+                      }
+                    }
+                    featuredImage {
+                      node {
+                        sourceUrl
+                      }
+                    }
+                  }
+                }
+              }
+            }
           `
         })
       });
-
       const json = await res.json();
+
       setD(json.data.posts.edges);
       return json.data.posts.edges;
     }
+    async function getData() {
+      if (cursor?.includes('A!7k')) {
+        const res = await fetch('https://admin.vazilegal.com/graphql', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          cache: 'no-store',
+          body: JSON.stringify({
+            query: `
+         query HomePageQuery {
+            posts(before: "${cursor}", last: 10) 
+              {
+                edges {
+                  cursor
+                  node {
+                    id
+                    slug
+                    title
+                    content
+                    commentCount
+                    date
+                    comments {
+                      nodes {
+                        content
+                      }
+                    }
+                    featuredImage {
+                      node {
+                        sourceUrl
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          `
+          })
+        });
+        const json = await res.json();
+        if (json.data.posts.edges.length === 0) return getAfterData('');
+        setD(json.data.posts.edges);
+        return json.data.posts.edges;
+      }
+      //     const res = await fetch('https://admin.vazilegal.com/graphql', {
+      //         method: 'POST',
+      //         headers: { 'Content-Type': 'application/json' },
+      //         cache: 'no-store',
+      //         body: JSON.stringify({
+      //           query: `
+      //          query HomePageQuery {
+      //   posts(after: "${cursor}", first: 10)
+      //   {
+      //     edges {
+      //       cursor
+      //       node {
+      //         id
+      //         slug
+      //         title
+      //         content
+      //         commentCount
+      //         date
+      //         comments {
+      //           nodes {
+      //             content
+      //           }
+      //         }
+      //         featuredImage {
+      //           node {
+      //             sourceUrl
+      //           }
+      //         }
+      //       }
+      //     }
+      //   }
+      // }
+      //           `
+      //         })
+      //       });
+
+      //       const json = await res.json();
+      //       setD(json.data.posts.edges);
+      return getAfterData(cursor);
+    }
     getData();
-  }, [pageNumber]);
+  }, [cursor]);
 
   return (
     <>
@@ -213,7 +295,9 @@ export default function BlogPage({ head, totalCount }) {
               <BlogPost posts={d} />
             </div>
             <div className="flex gap-x-2 max-w-[56.8rem] mx-auto  gap-y-5">
-              <button> Prev </button>
+              <button>
+                <a href={`/blog?page=${d[0]?.cursor}A!7k`}>Prev</a>{' '}
+              </button>
               <button> 1 </button>
               <button> 2 </button>
               <button> 3 </button>
