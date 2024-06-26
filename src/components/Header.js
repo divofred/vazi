@@ -62,6 +62,7 @@ const Header = () => {
             >
               Careers
             </Link>
+
             {/*<img src="/ellipse.svg" className="w-[3px]  inline-flex" />
             <Link
               href={'/contact-us'}

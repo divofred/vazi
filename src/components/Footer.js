@@ -1,7 +1,7 @@
-'use client';
-import Link from 'next/link';
-import Image from 'next/image';
-import ButtonOne from './ButtonOne';
+"use client";
+import Link from "next/link";
+import Image from "next/image";
+import ButtonOne from "./ButtonOne";
 
 export default function Footer() {
   const d = new Date();
@@ -28,7 +28,14 @@ export default function Footer() {
                 <img src="/logo.png" className="w-8 hidden lg:block" />
                 <p className=" text-sub text-[8px] lg:text-sm">
                   Copyright {year} Vazi Legal Business Attorneys. All Rights
-                  Reserved.
+                  Reserved. |{" "}
+                  <a
+                    href="/privacy-policy"
+                    className="text-[#00A9C6] hover:font-semibold"
+                  >
+                    {" "}
+                    Privacy Policy{" "}
+                  </a>
                 </p>
               </div>
               <div className=" inline-flex gap-4 items-center">
