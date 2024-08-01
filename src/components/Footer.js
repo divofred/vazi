@@ -39,10 +39,10 @@ export default function Footer() {
                 </p>
               </div>
               <div className=" inline-flex gap-4 items-center">
-                <a href="">
+                <a href="https://www.linkedin.com/company/vazi-legal-business-attorneys/">
                   <img src="/linkedin.svg" className="w-3 lg:w-5" />
                 </a>
-                <a href="">
+                <a href="https://x.com/vazilegal?s=21&t=hSUSUGAhV1-FRZdZ_vCQiQ">
                   <img src="/twitter.svg" className="w-3 lg:w-5" />
                 </a>
                 <a href="">
