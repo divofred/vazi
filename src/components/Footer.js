@@ -43,10 +43,10 @@ export default function Footer() {
                   <img src="/linkedin.svg" className="w-3 lg:w-5" />
                 </a>
                 <a href="https://x.com/vazilegal?s=21&t=hSUSUGAhV1-FRZdZ_vCQiQ">
-                  <img src="/twitter.svg" className="w-3 lg:w-5" />
+                  <img src="/x.svg" className="w-3 lg:w-5" />
                 </a>
-                <a href="">
-                  <img src="/facebook.svg" className="w-3 lg:w-5" />
+                <a href="https://www.instagram.com/vazilegal_?igsh=MXB3d3o5Yjc4NTBk">
+                  <img src="/instagram.svg" className="w-3 lg:w-5" />
                 </a>
               </div>
             </div>
