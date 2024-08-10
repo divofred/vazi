@@ -28,7 +28,6 @@ const NewsletterPopup = () => {
       {isVisible && (
         <div className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6">
           <div className="relative bg-[#0898AF]/90 backdrop-blur-lg p-6 md:p-10 rounded-2xl shadow-lg w-full max-w-4xl mx-auto animate-slideUpAndFadeIn">
-            {/* Background SVG */}
             <img
               src="mailicon.svg"
               alt="Background"
