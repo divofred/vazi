@@ -9,6 +9,7 @@ import GradientCarousel from "@/components/GradientCarousel";
 import brandData from "@/components/data/brandData";
 
 import BrandImages from "@/components/BrandImages";
+import NewsletterPopup from "./NewsLetterPopup";
 
 import Marquee from "react-fast-marquee";
 import Fade from "react-reveal/Fade";
@@ -198,6 +199,8 @@ export default function HomePage({ head }) {
             </div>
           </div>
         </section>
+
+        <NewsletterPopup />
       </main>
     </>
   );

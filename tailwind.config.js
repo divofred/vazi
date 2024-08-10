@@ -24,6 +24,21 @@ module.exports = {
       center: true,
     },
     extend: {
+      keyframes: {
+        slideUpAndFadeIn: {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(100%)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+      },
+      animation: {
+        slideUpAndFadeIn: "slideUpAndFadeIn 0.4s ease-out",
+      },
       backgroundClipText: ["hover", "focus"],
       textTransparent: ["hover", "focus"],
       backgroundImage: {
