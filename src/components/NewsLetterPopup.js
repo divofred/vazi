@@ -38,7 +38,7 @@ const NewsletterPopup = () => {
                 <h2 className="text-4xl text-[rgb(255,255,255)] font-extrabold mb-4 w-[17rem]">
                   Subscribe to our Newsletter
                 </h2>
-                <p className="text-sm md:text-base text-[rgba(255,255,255,0.77)] mb-6 md:w-[28rem]">
+                <p className="text-sm md:text-base text-[rgba(255,255,255,0.78)] mb-6 md:w-[28rem]">
                   Receive notifications regarding blog entries, company events,
                   announcements, and materials from the founders.
                 </p>
