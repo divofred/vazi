@@ -9,8 +9,9 @@ export async function getLegalData() {
     cache: "no-store",
     body: JSON.stringify({
       query: `
-      {
-        legalTeamMembers{
+       {
+  legalTeamMembers(first: 20)
+{
           nodes{
             id
             slug
